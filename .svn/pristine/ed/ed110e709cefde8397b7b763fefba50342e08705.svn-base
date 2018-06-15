@@ -1,0 +1,342 @@
+<!--==============================header=================================-->
+<header id="header">
+  <title>Asignación Trabajo por Areas</title>
+</header>
+
+<div class="row_5">
+  <div class="container">
+    <form name="form1" method="post" action="" class="form-horizontal">
+      <div class="form-group">
+        <label class="control-label col-xs-1">Proyecto:</label>
+        <div class="col-xs-2">
+          <input type="text" class="form-control" value="<?php echo $proyecto->NOM_PROYECTO; ?>"  readonly>
+        </div>
+        <label class="control-label col-xs-2">Predio N°:</label>
+        <div class="col-xs-2">
+          <input type="text" class="form-control" placeholder="Predio" >
+        </div>
+      </div>
+    </div>
+  </form>
+  <div id="content">
+    <div class="footerlogo">
+     <div class="menuheader">
+      <div class="container">
+        <nav class="navbar navbar-default navbar-static-top tm_navbar" role="navigation">
+          <ul class="nav sf-menu">
+            <li class="active"><a href="<?php echo base_url('index.php/asignaciontrabajoporareas'); ?>">Reparto(Juridico) </a></li>
+            <li><a href="<?php echo base_url('index.php/asignacionpredial'); ?>">Reparto(predial)</a></li>
+            <li><a href="<?php echo base_url('index.php/asignacionsocial'); ?>">Asignacion(Social)</a></li>
+            <li><a href="#">Reportes</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row_5">
+      <!-- Inicio Accordion Asigación de predios -->
+      <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default" id="panel-sel-abogado">
+          <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+              <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                1. Seleccione Un Abogado
+              </a>
+            </h4>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse in " role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <form id="busqueda-form">
+                    <label for="abogado-nombre">Nombre: </label>
+                    <input id="abogado-nombre" class="form-control" name="nombre" type="text" />
+                    <input id="cargo" name="cargo" type="hidden" value="<?php echo $cargo; ?>" />
+                  </form>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <input type="button" value="Buscar" id="btn-buscar" class="btn btn-primary" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-9">
+                  <div id='alert-container'></div>
+                  <table border="3" id="tabla-resultados" class="table table-striped table-bordered">
+                    <thead>
+                     <tr>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Apellido</th>
+                      <th scope="col">Usuario</th>
+                      <th scope="col">Cargo</th>
+                      <th scope="col">Cedula</th>
+                      <th scope="col"></th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default "  id="panel-sel-predios">
+        <div class="panel-heading" role="tab" id="headingTwo">
+          <h4 class="panel-title">
+            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              2. Seleccione los predios a asignar
+            </a>
+          </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-12 form-inline">
+               <label >Abogado: </label>
+               <input id="abogado-nombre-predios" class="form-control" name="nombre" type="text" readonly/>
+               <input id="abogado-predios-submit" class="btn btn-primary pull-right" type="button" value="Guardar"/>
+             </div>
+
+           </div>
+           <div class="row">
+            <div class="col-md-12">
+              <form id = "form-asignacion-predios">
+                <input type="hidden" name="cod-trabajador" id="cod-trabajador" />
+                <table border="3" name="tabla1" id="tabla-predios" class="table table-striped table-bordered">
+                  <thead>
+                   <tr>
+                    <th scope="col"><input type='checkbox' id="select_all_predios"/></th>
+                    <th scope="col">N° Predio</th>
+                    <th scope="col">Unidad Funcional</th>
+                    <th scope="col">Cedula catastral</th>
+                    <th scope="col">Matricula inmobiliaria</th>
+                    <th scope="col">Departamento</th>
+                    <th scope="col">Municipio</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php if ($predios !== false) {
+	foreach ($predios as $dato) {
+		?>
+                    <tr>
+                      <td><input type='checkbox' name='predios_seleccionados[]' value='<?php if ($dato !== null && $dato->COD_GIS !== null) {echo ($dato->COD_GIS);}
+		?>'/></td>
+                      <td><?php if ($dato !== null && $dato->PREDIO_No !== null) {
+			echo ($dato->PREDIO_No);
+		}
+		?></td>
+                     <td><?php if ($dato !== null && $dato->UNID_FUNCIO !== null) {
+			echo ($dato->UNID_FUNCIO);
+		}
+		?></td>
+                     <td><?php if ($dato !== null && $dato->CED_CATAS !== null) {
+			echo ($dato->CED_CATAS);
+		}
+		?></td>
+                     <td><?php if ($dato !== null && $dato->MAT_INMOBILIARIA !== null) {
+			echo ($dato->MAT_INMOBILIARIA);
+		}
+		?></td>
+                     <td><?php if ($dato !== null && $dato->DEPARTAMENTO !== null) {
+			echo ($dato->DEPARTAMENTO);
+		}
+		?></td>
+                     <td><?php if ($dato !== null && $dato->MUNICIPIO !== null) {
+			echo ($dato->MUNICIPIO);
+		}
+		?></td>
+                   </tr>
+                   <?php }}
+?>
+                 </tbody>
+               </table>
+             </form>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+   <div class="panel panel-default ">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Collapsible Group Item #3
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+  var tabla = $("#tabla-resultados");
+  tabla.hide();
+
+  var table = $('#tabla-predios').DataTable({
+    "language": {
+      "decimal":        ",",
+      "emptyTable":     "No se encontraron predios relacionados a este proyecto",
+      "info":           "Mostrando de _START_ a _END_ de _TOTAL_ registros",
+      "infoEmpty":      "Mostrando de 0 a 0 de 0 registros",
+      "infoFiltered":   "(Filtrados de _MAX_ registros)",
+      "infoPostFix":    "",
+      "thousands":      ".",
+      "lengthMenu":     "Mostrar _MENU_ registros",
+      "loadingRecords": "Cargando...",
+      "processing":     "Procesando...",
+      "search":         "Buscar:",
+      "zeroRecords":    "No se encontraron registros coincidentes",
+      "paginate": {
+        "first":      "Primero",
+        "last":       "Último",
+        "next":       "Siguiente",
+        "previous":   "Anterior"
+      },
+      "aria": {
+        "sortAscending":  ": activate to sort column ascending",
+        "sortDescending": ": activate to sort column descending"
+      }
+    },
+    "pagingType": "full_numbers",
+    columnDefs: [ {
+      orderable: false,
+      targets:   0
+    } ],
+    order: [[ 1, 'asc' ]],
+  });
+$("#btn-buscar").click(function(){
+  $('#alert-container').html('');
+  tabla.hide();
+  $.ajax({
+    method: "POST",
+    url: "<?php echo base_url('index.php/asignaciontrabajoporareas/buscarUsuario'); ?>",
+    data: $('#busqueda-form').serialize()
+  })
+  .done(function( data ) {
+    if(data.datos.length>0){
+      var r = [];
+      var tabla = $("#tabla-resultados");
+      $.each(data.datos, function(key, value) {
+        agregarFila(r,value);
+      });
+      tabla.find('tbody').html(r.join(''));
+      tabla.show();
+    }else{
+      addAlert(
+        $('#alert-container'),
+        'alert-danger', "No se encontraron resultados", '',
+        true);
+    }
+  });
+});
+
+$('#select_all_predios').change(function(){
+  var filteredRows = table.$('tr', { "filter": "applied" });
+  filteredRows.find(':checkbox').prop('checked', $(this).is(':checked'));
+});
+
+$('#abogado-predios-submit').click(function(){
+  var filteredRows = table.$('tr', { "filter": "applied" });
+  var prediosSel = filteredRows.find(':checked');
+  if(prediosSel.length == 0){
+    alert('Debe seleccionar al menos un predio para asignar, por favor reintente.');
+  }else{
+    $.ajax({
+      method: "POST",
+      url: "<?php echo base_url('index.php/asignaciontrabajoporareas/asignarPredios'); ?>",
+      data: $('#form-asignacion-predios').serialize()
+    })
+    .done(function( data ) {
+      if(data.resultado == "ok"){
+        alert("Se asignaron los predios correctamente.");
+        location.reload();
+      }else{
+        alert("Se produjo un error, reintente.");
+      }
+    })
+    .fail(function(){
+      alert("Se produjo un error, reintente.");
+    });
+  }
+});
+
+function agregarFila(r,datos){
+  r.push('<tr id="row-');
+  r.push(datos.CEDULA);
+  r.push('"><td>');
+  r.push(datos.NOMBRE);
+  r.push('</td><td>');
+  r.push(datos.APELLIDO);
+  r.push('</td><td>');
+  r.push(datos.USUARIO);
+  r.push('</td><td>');
+  r.push(datos.ROL);
+  r.push('</td><td>');
+  r.push(datos.CEDULA);
+  r.push('</td><td><button type="button" class="btn btn-small btn-primary b-select-row" data-id="');
+  r.push(datos.CEDULA);
+  r.push('"><span class="icon-remove"></span><b>Seleccionar</b></button></td></tr>');
+}
+
+function addAlert(destinyElement, alertType, strongText, text, autoCloses) {
+  var r = [], j = 0;
+
+  r[j++] = '<div id="alert" class="alert fade in ';
+  r[j++] = alertType;
+  r[j++] = '"><button type="button" class="close" data-dismiss="alert">×</button><strong>';
+  r[j++] = strongText;
+  r[j++] = '</strong> ';
+  r[j++] = text;
+  r[j++] = '</div>';
+  destinyElement.html(r.join(''));
+
+  if (autoCloses) {
+    var alert = destinyElement.find('#alert');
+    setTimeout(function() {
+      alert.alert('close');
+    }, 5000);
+  }
+}
+});
+
+$('#collapseOne').on('hide.bs.collapse', function (e) {
+  return $("#cod-trabajador").val()!=''; // true or false
+}).on('show.bs.collapse', function (e) {
+  return $("#cod-trabajador").val()==''; // true or false
+});
+
+$('#collapseTwo').on('show.bs.collapse', function (e) {
+  return  $("#cod-trabajador").val()!='';
+}).on('hide.bs.collapse', function (e) {
+  return  $("#cod-trabajador").val()=='';
+});
+
+$(document).on('click', '.b-select-row', function(){
+  var idTrabajador = $(this).attr('data-id');
+  var fila = $(this).closest('tr');
+  var celdas = fila.find('td');
+  $("#abogado-nombre-predios").val($(celdas[0]).html()+' '+$(celdas[1]).html());
+  $("#cod-trabajador").val(idTrabajador);
+  $("#collapseOne").collapse("hide");
+  $("#panel-sel-abogado").toggleClass('panel-success');
+  $("#collapseTwo").collapse("show");
+});
+</script>
+<style type="text/css">
+#abogado-nombre-predios{
+  width: 50%;
+}
+</style>
+<!-- Fin Accordion Asigación de predios -->
+</div>
+</div>
+</div>
+</div>
+

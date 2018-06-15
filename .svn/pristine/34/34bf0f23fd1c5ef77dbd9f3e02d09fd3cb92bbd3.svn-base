@@ -1,0 +1,532 @@
+<header id="header">
+        <title>Ficha Predial</title>
+</header>
+<!--==============================content=================================-->
+<div id="content">
+    <!--==============================row5=================================-->
+    
+    <div class="footerlogo">
+     <div class="menuheader">
+          <div class="container">
+            <nav class="navbar navbar-default navbar-static-top tm_navbar" role="navigation">
+                <ul class="nav sf-menu">
+                  <li><a href="<?php echo base_url('index.php/estudiodetitulos');?>">Estudio de titulos</a></li>
+                  <li class="active"><a href="<?php echo base_url('index.php/fichapredial');?>">Ficha predial</a></li>
+                  <li><a href="<?php echo base_url('index.php/planopredial');?>">Plano predial</a></li>
+                  <li><a href="#">Avaluos</a></li>
+                  <li><a href="#">Ficha social</a></li>
+                  <li><a href="#">Reportes</a></li>
+                </ul>
+            </nav>
+          </div>
+      </div>
+      </div>
+      <div class="row_5">
+    <div class="container">
+    <form action="" method="post" enctype="multipart/form-data" name="form3">
+      <table border="0">
+        <tr>
+          <td>Unidad Funcional</td>
+          <td><label for="Unid_Func"></label>
+          <input name="Unid_Func" type="text" id="Unid_Func" value=""></td>
+          <td>Sector o tramo</td>
+          <td><label for="Sector"></label>
+          <textarea name="Sector" id="Sector"></textarea></td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>Absc. inicial</td>
+          <td><label for="Absc_Inic"></label>
+          <input name="Absc_Inic" type="text" id="Absc_Inic" value=""></td>
+          <td>Margen</td>
+          <td><label for="Margen"></label>
+          <textarea name="Margen" id="Margen"></textarea></td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>Absc. FInal</td>
+          <td><label for="Absc_Final"></label>
+          <input name="Absc_Final" type="text" id="Absc_Final" value=""></td>
+          <td>Longitud efectiva (m)</td>
+          <td><label for="Form"></label>
+          <input name="Form" type="text" id="Form" value=""></td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>Direccion/Email de contacto</td>
+          <td><label for="Direccion_Email"></label>
+          <textarea name="Direccion_Email" id="Direccion_Email"></textarea></td>
+          <td>Clasificacion del suelo</td>
+          <td><label for="Clasif_Suelo"></label>
+          <textarea name="Clasif_Suelo" id="Clasif_Suelo"></textarea></td>
+          <td>PDF</td>
+          <td><label for="Pdf1"></label>
+          <input type="file" name="Pdf1" id="Pdf1" accept="application/pdf"></td>
+        </tr>
+        <tr>
+          <td>Vereda</td>
+          <td><label for="Vereda"></label>
+          <input name="Vereda" type="text" id="Vereda" value=""></td>
+          <td>Actividad economica del predio</td>
+          <td><label for="Activ_Econ"></label>
+          <textarea name="Activ_Econ" id="Activ_Econ"></textarea></td>
+          <td>PDF</td>
+          <td><label for="Pdf2"></label>
+          <input type="file" name="Pdf2" id="Pdf2" accept="application/pdf"></td>
+        </tr>
+        <tr>
+          <td>Predio requerido para</td>
+          <td><label for="Predio_Req"></label>
+          <textarea name="Predio_Req" id="Predio_Req"></textarea></td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+    </form>
+    <p>&nbsp; </p>
+    <form name="form4" method="post" action="">
+      <table border="0">
+        <tr>
+          <td>LINDEROS</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>Longitud(m)</td>
+          <td>Colindantes</td>
+        </tr>
+        <tr>
+          <td>Norte</td>
+          <td><label for="Long_Nort"></label>
+          <input name="Long_Nort" type="text" id="Long_Nort" value=""></td>
+          <td><label for="Col_Nort"></label>
+          <textarea name="Col_Nort" id="Col_Nort"></textarea></td>
+        </tr>
+        <tr>
+          <td>Sur</td>
+          <td><label for="Long_Sur"></label>
+          <input name="Long_Sur" type="text" id="Long_Sur" value=""></td>
+          <td><label for="Col_Sur"></label>
+          <textarea name="Col_Sur" id="Col_Sur"></textarea></td>
+        </tr>
+        <tr>
+          <td>Oriente</td>
+          <td><label for="Long_Ori"></label>
+          <input name="Long_Ori" type="text" id="Long_Ori" value=""></td>
+          <td><label for="Col_Ori"></label>
+          <textarea name="Col_Ori" id="Col_Ori"></textarea></td>
+        </tr>
+        <tr>
+          <td>Occidente</td>
+          <td><label for="Lon_Occ"></label>
+          <input name="Lon_Occ" type="text" id="Lon_Occ" value=""></td>
+          <td><label for="Col_Occ"></label>
+          <textarea name="Col_Occ" id="Col_Occ"></textarea></td>
+        </tr>
+      </table>
+    </form>
+<p>&nbsp;</p>
+    <p>IINVENTARIO DE CULTIVOS Y ESPECIES</p>
+    <table border="2" id="table1">
+      <tr>
+        <th bgcolor="#CCCCCC" scope="col">Descripcion</th>
+        <th bgcolor="#CCCCCC" scope="col">Cantidad</th>
+        <th bgcolor="#CCCCCC" scope="col">Densidad</th>
+        <th bgcolor="#CCCCCC" scope="col">Unidad</th>
+        <th bgcolor="#CCCCCC" scope="col">Editar_Eliminar</th>
+      </tr>
+      <?php
+      if ($datos!==false){
+          foreach ($datos -> result() as $dato) { ?>
+            <tr>
+              <td><?php if($dato!==null && $dato->DESCRIPCION!==null) echo($dato->DESCRIPCION); ?></td>
+              <td><?php if($dato!==null && $dato->CANTIDAD!==null) echo($dato->CANTIDAD); ?></td>
+              <td><?php if($dato!==null && $dato->DENSIDAD!==null) echo($dato->DENSIDAD); ?></td>
+              <td><?php if($dato!==null && $dato->UNIDAD!==null) echo($dato->UNIDAD); ?></td>
+              <td><input type="button" value="EDIT" data-toggle="modal" data-target="#myModalx">
+                <input type="button" value="DELETE"></td>
+            </tr>
+          <?php } }?>
+    </table>
+    <p><input type="button" name="Agregar" id="Nuevo" value="Nuevo" data-toggle="modal" data-target="#myModal"></p>
+    <p>DESCRIPCION DE LAS CONSTRUCCIONES</p>
+<table border="1" id="table2">
+      <tr>
+        <th bgcolor="#CCCCCC" scope="col">Item</th>
+        <th bgcolor="#CCCCCC" scope="col">Descripcion</th>
+        <th bgcolor="#CCCCCC" scope="col">Cantidad</th>
+        <th bgcolor="#CCCCCC" scope="col">Unidad</th>
+      </tr>
+      <?php
+      if ($datos!==false){
+          foreach ($datos1 -> result() as $dato1) { ?>
+            <tr>
+              <td><?php if($dato1!==null && $dato1->ITEM!==null) echo($dato1->ITEM); ?></td>
+              <td><?php if($dato1!==null && $dato1->DESCRIPCION!==null) echo($dato1->DESCRIPCION); ?></td>
+              <td><?php if($dato1!==null && $dato1->CANTIDAD!==null) echo($dato1->CANTIDAD); ?></td>
+              <td><?php if($dato1!==null && $dato1->UNIDAD!==null) echo($dato1->UNIDAD); ?></td>
+              <td><input type="button" value="EDIT" data-toggle="modal" data-target="#myModalx">
+                <input type="button" value="DELETE"></td>
+            </tr>
+          <?php } }?>
+    </table>
+<table width="245" border="0">
+  <tr>
+    <td width="31">&nbsp;</td>
+    <td width="85">Total</td>
+    <td width="61"><label for="Total"></label>
+    <input name="Total" type="text" id="Total" value="" size="10" maxlength="63"></td>
+    <td width="50">m2</td>
+  </tr>
+</table>
+<p><input type="button" name="Agregar" id="Nuevo1" value="Nuevo" data-toggle="modal" data-target="#myModal1"></p>
+<p>DESCRIPCION DE LAS CONSTRUCCIONES ANEXAS</p>
+<table border="1" id="table3">
+      <tr>
+        <th bgcolor="#CCCCCC" scope="col">Item</th>
+        <th bgcolor="#CCCCCC" scope="col">Descripcion</th>
+        <th bgcolor="#CCCCCC" scope="col">Cantidad</th>
+        <th bgcolor="#CCCCCC" scope="col">Unidad</th>
+      </tr>
+      <?php
+      if ($datos!==false){
+          foreach ($datos2 -> result() as $dato2) { ?>
+            <tr>
+              <td><?php if($dato2!==null && $dato2->ITEM!==null) echo($dato2->ITEM); ?></td>
+              <td><?php if($dato2!==null && $dato2->DESCRIPCION!==null) echo($dato2->DESCRIPCION); ?></td>
+              <td><?php if($dato2!==null && $dato2->CANTIDAD!==null) echo($dato2->CANTIDAD); ?></td>
+              <td><?php if($dato2!==null && $dato2->UNIDAD!==null) echo($dato2->UNIDAD); ?></td>
+              <td><input type="button" value="EDIT" data-toggle="modal" data-target="#myModalx">
+                <input type="button" value="DELETE"></td>
+            </tr>
+          <?php } }?>
+    </table>
+<table width="245" border="0">
+  <tr>
+    <td width="31">&nbsp;</td>
+    <td width="85">Total</td>
+    <td width="61"><label for="Total"></label>
+    <input name="Total" type="text" id="Total" value="" size="10" maxlength="63"></td>
+    <td width="50">m2</td>
+  </tr>
+</table>
+<p><input type="button" name="Agregar" id="Nuevo2" value="Nuevo" data-toggle="modal" data-target="#myModal2"></p>
+<form name="form5" method="post" action="">
+<table border="0">
+    <tr>
+      <td>Tiene el inmueble licencia urbanistica, Urbanizacion, parcelacion, subdivision, construccion, intervencion, espacio publico?</td>
+      <td><input type="checkbox" name="Licencia" id="Licencia">
+      <label for="Licencia"></label></td>
+    </tr>
+    <tr>
+      <td>Tiene el inmueble reglamento de propiedad horizontal Ley 675 de 2001?</td>
+      <td><input type="checkbox" name="Regl_Prop" id="Regl_Prop">
+      <label for="Regl_Prop"></label></td>
+    </tr>
+    <tr>
+      <td>Tiene el inmueble aprobado plan parcial en el momento del levantamiento de la ficha predial?</td>
+      <td><input type="checkbox" name="Plan_Parcial" id="Plan_Parcial">
+      <label for="Plan_Parcial"></label></td>
+    </tr>
+    <tr>
+      <td>Aplica informe de analisis de Area Remanente?</td>
+      <td><input type="checkbox" name="Area_Rem" id="Area_Rem">
+      <label for="Area_Rem"></label></td>
+    </tr>
+    <tr>
+      <td>De acuerdo al estudio de titulos, la franja que estipula el decreto 2770 debe adquirirse?</td>
+      <td><input type="checkbox" name="Decreto_2770" id="Decreto_2770">
+      <label for="Decreto_2770"></label></td>
+    </tr>
+  </table>
+</form>
+<p>&nbsp;</p>
+<p>OBSERVACIONES</p>
+<table width="600" border="1">
+  <tr>
+    <td><label for="Observaciones"></label>
+    <textarea name="Observaciones" cols="150" id="Observaciones"></textarea></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<form action="" method="post" enctype="multipart/form-data" name="form6">
+  <table border="0">
+    <tr>
+      <td><input type="button" name="Fotografias" id="Fotografias" value="ADJUNTAR FOTOGRAFIAS" data-toggle="modal" data-target="#myModal3"></td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td><input type="button" name="Soportes" id="Soportes" value="ADJUNTAR SOPORTES DE CAMPO" data-toggle="modal" data-target="#myModal4"></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>Responsable</td>
+      <td><label for="Resp"></label>
+      <input name="Resp" type="text" id="Resp" value=""></td>
+      <td>Fecha</td>
+      <td><label for="Fecha"></label>
+      <input name="Fecha" type="text" id="Fecha" value=""></td>
+      <td>&nbsp;</td>
+      <td><input type="submit" name="Genera_pdf" id="Genera_pdf" value="Generar PDF"></td>
+      <td>&nbsp;</td>
+      <td><input type="submit" name="Imprimir" id="Imprimir" value="IMPRIMIR"></td>
+    </tr>
+  </table>
+</form>
+    </div>
+    </div>
+</div>
+</div>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Nuevo</h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label col-xs-3">Descripcion:</label>
+        <div class="col-xs-3">
+            <input type="text" class="form-control" id="Descripcion" placeholder="Descripcion">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-3">Cantidad:</label>
+        <div class="col-xs-3">
+            <input type="text" class="form-control" id="Cantidad" placeholder="Cantidad">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-3">Densidad:</label>
+        <div class="col-xs-3">
+            <input type="text" class="form-control" id="Densidad" placeholder="Densidad">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-3">Unidad:</label>
+        <div class="col-xs-3">
+            <input type="text" class="form-control" id="Unidad" placeholder="Unidad">
+        </div>
+    </div>
+    <p>&nbsp;</p>
+    <div class="form-group">
+        <div class="col-xs-offset-3 col-xs-9">
+            <input type="submit" class="btn btn-primary" value="Ingresar">
+        </div>
+    </div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Nuevo</h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label col-xs-2">Item:</label>
+        <div class="col-xs-3">
+            <input type="text" class="form-control" id="Item" placeholder="Descripcion">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-2">Descripcion:</label>
+        <div class="col-xs-3">
+            <input type="text" class="form-control" id="Descripcion" placeholder="Cantidad">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-2">Cantidad:</label>
+        <div class="col-xs-3">
+            <input type="text" class="form-control" id="Cantidad" placeholder="Densidad">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-2">Unidad:</label>
+        <div class="col-xs-3">
+            <input type="text" class="form-control" id="Unidad" placeholder="Unidad">
+        </div>
+    </div>
+    <p>&nbsp;</p>
+    <div class="form-group">
+        <div class="col-xs-offset-3 col-xs-9">
+            <input type="submit" class="btn btn-primary" value="Ingresar">
+        </div>
+    </div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Nuevo</h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label col-xs-2">Item:</label>
+        <div class="col-xs-3">
+            <input type="text" class="form-control" id="Item" placeholder="Descripcion">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-2">Descripcion:</label>
+        <div class="col-xs-3">
+            <input type="text" class="form-control" id="Descripcion" placeholder="Cantidad">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-2">Cantidad:</label>
+        <div class="col-xs-3">
+            <input type="text" class="form-control" id="Cantidad" placeholder="Densidad">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-2">Unidad:</label>
+        <div class="col-xs-3">
+            <input type="text" class="form-control" id="Unidad" placeholder="Unidad">
+        </div>
+    </div>
+    <p>&nbsp;</p>
+    <div class="form-group">
+        <div class="col-xs-offset-3 col-xs-9">
+            <input type="submit" class="btn btn-primary" value="Ingresar">
+        </div>
+    </div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade" id="myModal3" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">FOTOGRAFIAS</h4>
+        </div>
+        <div class="modal-body">
+          <form id="form4" name="form4" method="post">
+      <table border="0" id="table1">
+        <tbody>
+          <tr>
+            <td>Registro No.</td>
+            <td><input type="number" name="Registro1" id="Registro1"></td>
+            <td>Registro No.</td>
+            <td><input type="number" name="Registro2" id="Registro2"></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td><input name="Texto_Registro1" type="text" id="Texto_Registro1"></td>
+            <td>&nbsp;</td>
+            <td><input type="text" name="Texto_Reg2" id="Texto_Reg2"></td>
+          </tr>
+          <tr>
+            <td>Descripcion</td>
+            <td><input type="text" name="Desc_Reg1" id="Desc_Reg1"></td>
+            <td>Descripcion</td>
+            <td><input type="text" name="Desc_Reg2" id="Desc_Reg2"></td>
+          </tr>
+          <tr>
+            <td>Registro No.</td>
+            <td><input type="number" name="Registro3" id="Registro3"></td>
+            <td>Registro No.</td>
+            <td><input type="number" name="Registro3" id="Registro4"></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td><input name="Texto_Registro2" type="text" id="Texto_Registro2"></td>
+            <td>&nbsp;</td>
+            <td><input type="text" name="Texto_Reg" id="Texto_Reg"></td>
+          </tr>
+          <tr>
+            <td>Descripcion</td>
+            <td><input type="text" name="Desc_Reg3" id="Desc_Reg3"></td>
+            <td>Descripcion</td>
+            <td><input type="text" name="Desc_Reg3" id="Desc_Reg4"></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade" id="myModal4" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Soportes de campo</h4>
+        </div>
+        <div class="modal-body">
+          <table border="1" id="table1">
+        <tr>
+          <th>Descripcion</th>
+          <th>PDF</th>
+          <th>FECHA</th>
+        </tr>
+    </table>
+    <p><input type="button" name="Agregar" id="Nuevo" value="Nuevo"></p>
+</div>
+</div>
+</div>
+</div>
+
+

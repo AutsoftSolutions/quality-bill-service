@@ -1,0 +1,320 @@
+
+<!--==============================content=================================-->
+<div id="content">
+    <!--==============================row5=================================-->
+    
+    <div class="footerlogo">
+     <div class="menuheader">
+          <div class="container">
+            <nav class="navbar navbar-default navbar-static-top tm_navbar" role="navigation">
+                <ul class="nav sf-menu">
+                  <li><a href="<?php echo base_url('index.php/estudiodetitulos');?>">Estudio de titulos</a></li>
+                  <li class="active"><a href="<?php echo base_url('index.php/fichapredial');?>">Ficha predial</a></li>
+                  <li><a href="<?php echo base_url('index.php/planopredial');?>">Plano predial</a></li>
+                  <li><a href="#">Avaluos</a></li>
+                  <li><a href="#">Ficha social</a></li>
+                  <li><a href="#">Reportes</a></li>
+                </ul>
+            </nav>
+          </div>
+      </div>
+      </div>
+      <div class="row_5">
+    <div class="container">
+    <form action="" method="post" enctype="multipart/form-data" name="form3">
+      <table border="0">
+        <tr>
+          <td>Unidad Funcional</td>
+          <td><label for="Unid_Func"></label>
+          <input name="Unid_Func" type="text" id="Unid_Func" value=""></td>
+          <td>Sector o tramo</td>
+          <td><label for="Sector"></label>
+          <textarea name="Sector" id="Sector"></textarea></td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>Absc. inicial</td>
+          <td><label for="Absc_Inic"></label>
+          <input name="Absc_Inic" type="text" id="Absc_Inic" value=""></td>
+          <td>Margen</td>
+          <td><label for="Margen"></label>
+          <textarea name="Margen" id="Margen"></textarea></td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>Absc. FInal</td>
+          <td><label for="Absc_Final"></label>
+          <input name="Absc_Final" type="text" id="Absc_Final" value=""></td>
+          <td>Longitud efectiva (m)</td>
+          <td><label for="Form"></label>
+          <input name="Form" type="text" id="Form" value=""></td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>Direccion/Email de contacto</td>
+          <td><label for="Direccion_Email"></label>
+          <textarea name="Direccion_Email" id="Direccion_Email"></textarea></td>
+          <td>Clasificacion del suelo</td>
+          <td><label for="Clasif_Suelo"></label>
+          <textarea name="Clasif_Suelo" id="Clasif_Suelo"></textarea></td>
+          <td>PDF</td>
+          <td><label for="Pdf1"></label>
+          <input type="file" name="Pdf1" id="Pdf1" accept="application/pdf"></td>
+        </tr>
+        <tr>
+          <td>Vereda</td>
+          <td><label for="Vereda"></label>
+          <input name="Vereda" type="text" id="Vereda" value=""></td>
+          <td>Actividad economica del predio</td>
+          <td><label for="Activ_Econ"></label>
+          <textarea name="Activ_Econ" id="Activ_Econ"></textarea></td>
+          <td>PDF</td>
+          <td><label for="Pdf2"></label>
+          <input type="file" name="Pdf2" id="Pdf2" accept="application/pdf"></td>
+        </tr>
+        <tr>
+          <td>Predio requerido para</td>
+          <td><label for="Predio_Req"></label>
+          <textarea name="Predio_Req" id="Predio_Req"></textarea></td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+    </form>
+    <p>&nbsp; </p>
+    <form name="form4" method="post" action="">
+      <table border="0">
+        <tr>
+          <td>LINDEROS</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>Longitud(m)</td>
+          <td>Colindantes</td>
+        </tr>
+        <tr>
+          <td>Norte</td>
+          <td><label for="Long_Nort"></label>
+          <input name="Long_Nort" type="text" id="Long_Nort" value=""></td>
+          <td><label for="Col_Nort"></label>
+          <textarea name="Col_Nort" id="Col_Nort"></textarea></td>
+        </tr>
+        <tr>
+          <td>Sur</td>
+          <td><label for="Long_Sur"></label>
+          <input name="Long_Sur" type="text" id="Long_Sur" value=""></td>
+          <td><label for="Col_Sur"></label>
+          <textarea name="Col_Sur" id="Col_Sur"></textarea></td>
+        </tr>
+        <tr>
+          <td>Oriente</td>
+          <td><label for="Long_Ori"></label>
+          <input name="Long_Ori" type="text" id="Long_Ori" value=""></td>
+          <td><label for="Col_Ori"></label>
+          <textarea name="Col_Ori" id="Col_Ori"></textarea></td>
+        </tr>
+        <tr>
+          <td>Occidente</td>
+          <td><label for="Lon_Occ"></label>
+          <input name="Lon_Occ" type="text" id="Lon_Occ" value=""></td>
+          <td><label for="Col_Occ"></label>
+          <textarea name="Col_Occ" id="Col_Occ"></textarea></td>
+        </tr>
+      </table>
+    </form>
+<p>&nbsp;</p>
+    <p>IINVENTARIO DE CULTIVOS Y ESPECIES</p>
+    <table border="2">
+      <tr>
+        <th bgcolor="#CCCCCC" scope="col">Descripcion</th>
+        <th bgcolor="#CCCCCC" scope="col">Cantidad</th>
+        <th bgcolor="#CCCCCC" scope="col">Densidad</th>
+        <th bgcolor="#CCCCCC" scope="col">Unidad</th>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+    <p>&nbsp;</p>
+    <p>DESCRIPCION DE LAS CONSTRUCCIONES</p>
+<table border="1">
+      <tr>
+        <th bgcolor="#CCCCCC" scope="col">Item</th>
+        <th bgcolor="#CCCCCC" scope="col">Descripcion</th>
+        <th bgcolor="#CCCCCC" scope="col">Cantidad</th>
+        <th bgcolor="#CCCCCC" scope="col">Unidad</th>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+<table width="245" border="0">
+  <tr>
+    <td width="31">&nbsp;</td>
+    <td width="85">Total</td>
+    <td width="61"><label for="Total"></label>
+    <input name="Total" type="text" id="Total" value="" size="10" maxlength="63"></td>
+    <td width="50">m2</td>
+  </tr>
+</table>
+<p>DESCRIPCION DE LAS CONSTRUCCIONES ANEXAS</p>
+<table border="1">
+      <tr>
+        <th bgcolor="#CCCCCC" scope="col">Item</th>
+        <th bgcolor="#CCCCCC" scope="col">Descripcion</th>
+        <th bgcolor="#CCCCCC" scope="col">Cantidad</th>
+        <th bgcolor="#CCCCCC" scope="col">Unidad</th>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+<table width="245" border="0">
+  <tr>
+    <td width="31">&nbsp;</td>
+    <td width="85">Total</td>
+    <td width="61"><label for="Total"></label>
+    <input name="Total" type="text" id="Total" value="" size="10" maxlength="63"></td>
+    <td width="50">m2</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<form name="form5" method="post" action="">
+<table border="0">
+    <tr>
+      <td>Tiene el inmueble licencia urbanistica, Urbanizacion, parcelacion, subdivision, construccion, intervencion, espacio publico?</td>
+      <td><input type="checkbox" name="Licencia" id="Licencia">
+      <label for="Licencia"></label></td>
+    </tr>
+    <tr>
+      <td>Tiene el inmueble reglamento de propiedad horizontal Ley 675 de 2001?</td>
+      <td><input type="checkbox" name="Regl_Prop" id="Regl_Prop">
+      <label for="Regl_Prop"></label></td>
+    </tr>
+    <tr>
+      <td>Tiene el inmueble aprobado plan parcial en el momento del levantamiento de la ficha predial?</td>
+      <td><input type="checkbox" name="Plan_Parcial" id="Plan_Parcial">
+      <label for="Plan_Parcial"></label></td>
+    </tr>
+    <tr>
+      <td>Aplica informe de analisis de Area Remanente?</td>
+      <td><input type="checkbox" name="Area_Rem" id="Area_Rem">
+      <label for="Area_Rem"></label></td>
+    </tr>
+    <tr>
+      <td>De acuerdo al estudio de titulos, la franja que estipula el decreto 2770 debe adquirirse?</td>
+      <td><input type="checkbox" name="Decreto_2770" id="Decreto_2770">
+      <label for="Decreto_2770"></label></td>
+    </tr>
+  </table>
+</form>
+<p>&nbsp;</p>
+<p>OBSERVACIONES</p>
+<table width="600" border="1">
+  <tr>
+    <td><label for="Observaciones"></label>
+    <textarea name="Observaciones" cols="150" id="Observaciones"></textarea></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<form action="" method="post" enctype="multipart/form-data" name="form6">
+  <table border="0">
+    <tr>
+      <td>Adjuntar fotografias</td>
+      <td><label for="Fotos"></label>
+      <input type="file" name="Fotos" id="Fotos" accept="image/*"></td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>Adjuntar soportes de campo</td>
+      <td><label for="Adj_Sop"></label>
+      <input type="file" name="Adj_Sop" id="Adj_Sop" accept="application/pdf"></td>
+    </tr>
+    <tr>
+      <td>Responsable</td>
+      <td><label for="Resp"></label>
+      <input name="Resp" type="text" id="Resp" value=""></td>
+      <td>Fecha</td>
+      <td><label for="Fecha"></label>
+      <input name="Fecha" type="text" id="Fecha" value=""></td>
+      <td>&nbsp;</td>
+      <td><input type="submit" name="Genera_pdf" id="Genera_pdf" value="Generar PDF"></td>
+      <td>&nbsp;</td>
+      <td><input type="submit" name="Imprimir" id="Imprimir" value="IMPRIMIR"></td>
+    </tr>
+  </table>
+</form>
+    </div>
+    </div>
+</div>

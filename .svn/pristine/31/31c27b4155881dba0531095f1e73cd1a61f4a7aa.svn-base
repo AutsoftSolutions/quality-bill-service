@@ -1,0 +1,52 @@
+<html lang="es">
+<body>
+
+    <p><!-- /#wrapper -->
+              
+          <!-- jQuery -->
+          <script src="js/jquery.js"></script>
+              
+          <!-- Bootstrap Core JavaScript -->
+          <script src="js/bootstrap.min.js"></script>
+              
+          <!-- Morris Charts JavaScript -->
+          <script src="js/plugins/morris/raphael.min.js"></script>
+<script src="js/plugins/morris/morris.min.js"></script></p>
+
+    <form class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label col-xs-2">Item:</label>
+        <div class="col-xs-3">
+            <input type="text" class="form-control" id="Item" placeholder="Item">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-2">Descripcion:</label>
+        <div class="col-xs-3">
+            <input type="text" class="form-control" id="Descripcion" placeholder="Descripcion">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-2">Cantidad:</label>
+        <div class="col-xs-3">
+            <input type="tel" class="form-control" id="Cantidad" placeholder="Cantidad">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-2">Unidad:</label>
+        <div class="col-xs-3">
+            <input type="text" class="form-control" id="Unidad" placeholder="Unidad">
+        </div>
+    </div>
+    <p>&nbsp;</p>
+    <div class="form-group">
+        <div class="col-xs-offset-3 col-xs-9">
+            <input type="submit" class="btn btn-primary" value="Ingresar">
+        </div>
+    </div>
+</form>
+</body>
+</html>

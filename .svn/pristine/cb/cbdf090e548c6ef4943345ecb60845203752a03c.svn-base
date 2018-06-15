@@ -1,0 +1,48 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Usuario_model extends CI_Model {
+	function obtenerUsuario($username) {
+		$this->db->from('usuario');
+		$this->db->where('USUARIO', $username);
+		$q = $this->db->get();
+
+		return $q->result();
+	}
+
+	function insert($data) {
+		$this->db->insert('usuario', array('NOMBRE' => $data['nombre'], 'APELLIDO' => $data['apellido'], 'USUARIO' => $data['usuario'], 'CARGO' => $data['cargo'], 'CEDULA' => $data['cedula'], 'DIRECCION' => $data['direccion'], 'TELEFONO' => $data['telefono'], 'EMAIL' => $data['email'], 'PASSWORD' => $data['password']));
+	}
+	function leer() {
+		$this->db->from('usuario');
+		$this->db->join('roles', 'roles.ID_ROL = usuario.CARGO');
+		$query = $this->db->get();
+
+		if ($query->num_rows() > 0) {
+			return $query;
+		} else {
+			return false;
+		}
+
+	}
+	function leeUsuario($id) {
+		$this->db->where('CEDULA', $id);
+		$query = $this->db->get('usuario');
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		} else {
+			return false;
+		}
+
+	}
+	function actualizar($id, $data) {
+		$datos = array('NOMBRE' => $data['nombre'], 'APELLIDO' => $data['apellido'], 'USUARIO' => $data['usuario'], 'CARGO' => $data['cargo'], 'DIRECCION' => $data['direccion'], 'TELEFONO' => $data['telefono'], 'EMAIL' => $data['email']);
+		$this->db->where('CEDULA', $id);
+		$query = $this->db->update('usuario', $datos);
+	}
+	function eliminar($id) {
+		$this->db->where('CEDULA', $id);
+		$this->db->delete('usuario');
+	}
+
+}

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Inicio</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.min.css"); ?>" >    
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="<?php echo base_url("assets/css/sb-admin.css"); ?>">
+    
+    <!-- Morris Charts CSS -->
+    <link rel="stylesheet" href="<?php echo base_url("assets/css/plugins/morris.css"); ?>">
+
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="<?php echo base_url("assets/font-awesome/css/font-awesome.min.css"); ?>">
+    <style type="text/css">
+    body,td,th {
+    font-size: 12px;
+    }
+    </style>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">ANI</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu message-dropdown">
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>Jose Tumialan</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>Jose Tumialan</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>Jose Tumialan</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-footer">
+                            <a href="#">Read All New Messages</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu alert-dropdown">
+                        <li>
+                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">View All</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Jose Tumialan <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                   <li>
+                        <a href="#"><i class="fa fa-fw fa-table"></i> Inicio</a>
+                  </li> 
+                   <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Formularios <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                                <a href="forms.html">Asignacion de trabajo por areas</a>
+                            </li>
+                            <li>
+                                <a href="forms1.html">Control y seguimiento</a>
+                            </li>
+                            <li>
+                                <a href="forms2.html">COntrol y seguimiento entregas interventoria</a>
+                            </li>
+                            <li>
+                                <a href="forms3.html">Ficha predial</a>
+                            </li>
+                            <li>
+                                <a href="forms4.html">Ficha diagnostico socioeconomico</a>
+                            </li>
+                            <li>
+                                <a href="forms5.html">Ficha diagnostico socieconomico(Registro fotografico)</a>
+                            </li>
+                            <li>
+                                <a href="forms6.html">Estudio de titulos</a>
+                            </li>
+                            <li>
+                                <a href="forms7.html">Ingreso adquisicion documentos objetos de estudio</a>
+                            </li>
+                            <li>
+                                <a href="forms8.html">Ingreso avaluos</a>
+                            </li>
+                            <li>
+                                <a href="forms9.html">Ingreso de documentos objeto de estudio</a>
+                            </li>
+                            <li>
+                                <a href="forms10.html">Ingreso informacion primaria (N° Predio)</a>
+                            </li>
+                            <li>
+                                <a href="forms11.html">Ingreso plano predial</a>
+                            </li>
+                            <li>
+                                <a href="forms12.html">Reparto y seguimiento</a>
+                            </li>
+                        </ul>
+                  </li>
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+              <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Asignación de trabajo por áreas</h1>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+                <!-- /.row -->
+                <!-- /.row -->
+			<div class="row">
+            	<div class="col-lg-12">
+					<h1><form action="" method="get"><table width="200" border="0">
+  <tr>
+    <td width="72"><label>Proyecto</label></td>
+    <td width="118"><input type="text" name="proyecto" id="proyecto"></td>
+  </tr>
+</table>
+</form></h1>
+              </div>
+            <div>
+                
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="js/plugins/morris/raphael.min.js"></script>
+    <script src="js/plugins/morris/morris.min.js"></script>
+    <form name="form1" method="post" action="">
+      <table width="726" border="1">
+        <tr>
+          <td width="138"><p>ABOGADO</p></td>
+          <td width="138">PREDIO N°</td>
+          <td width="138">FECHA DE INICIO</td>
+          <td width="145">FECHA DE FINALIZACION</td>
+          <td width="133">ESTADO</td>
+        </tr>
+        <tr>
+          <td height="35"><label>
+            <textarea name="Abogado" cols="40" id="Abogado"></textarea>
+          </label></td>
+          <td><label>
+            <textarea name="NumPredio" cols="10" id="NumPredio"></textarea>
+          </label></td>
+          <td><label>
+            <textarea name="Fecha_Inicio" cols="25" id="Fecha_Inicio"></textarea>
+          </label></td>
+          <td><label>
+            <textarea name="FechaFinal" cols="25" id="FechaFinal"></textarea>
+          </label></td>
+          <td><label>
+            <textarea name="Estado" cols="S" id="Estado"></textarea>
+          </label></td>
+        </tr>
+      </table>
+      <p>
+        <input type="submit" name="Enviar" id="Enviar" value="Enviar">
+      </p>
+    </form>
+<script src="js/plugins/morris/morris-data.js"></script>
+<input type="button" value="Continuar" onclick="window.open('estudiodetitulos')" />
+
+</body>
+
+</html>

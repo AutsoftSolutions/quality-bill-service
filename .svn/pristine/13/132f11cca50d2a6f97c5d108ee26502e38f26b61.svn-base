@@ -1,0 +1,58 @@
+<html lang="es">
+<body>
+
+	<p><!-- /#wrapper -->
+              
+          <!-- jQuery -->
+          <script src="js/jquery.js"></script>
+              
+          <!-- Bootstrap Core JavaScript -->
+          <script src="js/bootstrap.min.js"></script>
+              
+          <!-- Morris Charts JavaScript -->
+          <script src="js/plugins/morris/raphael.min.js"></script>
+<script src="js/plugins/morris/morris.min.js"></script></p>
+
+    <form class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label col-xs-2">Funcionario:</label>
+        <div class="col-xs-3">
+            <input type="text" class="form-control" id="funcionario" placeholder="Funcionario">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-2">Predio No.:</label>
+        <div class="col-xs-3">
+            <input type="text" class="form-control" id="Pred_Num" placeholder="Predio No">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-2">Fecha de Inicio:</label>
+        <div class="col-xs-3">
+            <input type="text" class="form-control" id="Fec_Ini" placeholder="Fecha">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-2">Fecha de Finalizacion:</label>
+        <div class="col-xs-3">
+            <input type="text" class="form-control" id="Fec_Fin" placeholder="Fecha">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-2">Estado:</label>
+        <div class="col-xs-3">
+            <input type="text" class="form-control" id="Estado" placeholder="Estado">
+        </div>
+    </div>
+    <p>&nbsp;</p>
+    <div class="form-group">
+        <div class="col-xs-offset-3 col-xs-9">
+            <input type="submit" class="btn btn-primary" value="Ingresar">
+        </div>
+    </div>
+</form>
+</body>
+</html>

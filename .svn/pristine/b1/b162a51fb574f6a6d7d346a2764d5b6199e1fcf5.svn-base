@@ -1,0 +1,24 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class fichapredial_model extends CI_Model {
+    function __construct() {
+        parent::__construct();
+        $this->load->database();
+    }   
+    function leer(){
+        $query = $this->db->get('cultivos');
+        if($query->num_rows() > 0) return $query;
+            else return false;
+    }
+    function leer1(){
+        $query1 = $this->db->get('construccion');
+        if($query1->num_rows() > 0) return $query1;
+            else return false;
+    }
+    function leer2(){
+        $query1 = $this->db->get('construccion_anexa');
+        if($query2->num_rows() > 0) return $query2;
+            else return false;
+    }
+}

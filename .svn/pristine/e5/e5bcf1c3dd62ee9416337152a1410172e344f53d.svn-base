@@ -1,0 +1,27 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class AsignacionPrediosModel extends CI_Model {
+	function __construct() {
+		parent::__construct();
+
+	}
+
+	function insertMultiple($predios, $trabajador) {
+		$this->db->trans_start();
+		foreach ($predios as $predio) {
+			$data = array(
+				'ID_PREDIO' => $predio,
+				'ID_TRABAJADOR' => $trabajador);
+			$this->db->insert('asignacion_predios', $data);
+		}
+		$this->db->trans_complete();
+
+		if ($this->db->trans_status() === FALSE) {
+			return false;
+		} else {
+			return true;
+		}
+
+	}
+}

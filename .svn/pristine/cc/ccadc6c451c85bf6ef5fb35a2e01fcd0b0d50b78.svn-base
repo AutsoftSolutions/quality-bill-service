@@ -1,0 +1,13 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Proyecto_model extends CI_Model {
+	function nuevo_proyecto($nombreproyecto)
+	{
+		$data = array(				
+				'NOM_PROYECTO' => $nombreproyecto,		
+				);
+		$this->db->insert('proyectos',$data);
+	}
+
+}

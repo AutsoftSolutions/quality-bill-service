@@ -1,0 +1,46 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class AsignacionTrabajoPorAreas extends CI_Controller {
+	public function __construct() {
+		parent::__construct();
+		$this->load->model('usuario_model');
+		$this->load->model('proyecto_model');
+		$this->load->model('ingresodepredios_model');
+		$this->load->model('asignacionprediosmodel');
+	}
+
+	public function index($id = NULL) {
+		if (is_null($id)) {
+			$id = 1;
+		}
+		$cargo = 2;
+		$data['cargo'] = $cargo;
+		$data['proyecto'] = $this->proyecto_model->leer_proyecto($id);
+		$data['predios'] = $this->ingresodepredios_model->leerPredioSinAsignarCargo($cargo, $id);
+		$this->load->view('common/header.php');
+		$this->load->view('asignacion_trabajo_por_areas/index', $data);
+		$this->load->view('common/footer.php');
+
+	}
+
+	public function buscarUsuario() {
+		$nombre = $this->input->post('nombre');
+		$cargo = $this->input->post('cargo');
+		$data['datos'] = $this->usuario_model->obtenerUsuarioNombreCargo($nombre, $cargo);
+		$this->output->set_content_type('application/json')->set_output(json_encode($data));
+	}
+
+	public function asignarPredios() {
+		$predios = $this->input->post('predios_seleccionados[]');
+		$trabajador = $this->input->post('cod-trabajador');
+		$resultado = $this->asignacionprediosmodel->insertMultiple($predios, $trabajador);
+		if ($resultado) {
+			$texto = "ok";
+		} else {
+			$texto = "error";
+		}
+		$this->output->set_content_type('application/json')->set_output(json_encode(array('resultado' => $texto)));
+	}
+}
+?>

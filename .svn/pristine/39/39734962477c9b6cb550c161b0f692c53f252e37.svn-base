@@ -1,0 +1,51 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class RegistroPersonal extends CI_Controller {
+	public function __construct() {
+		parent::__construct();
+		$this->load->model('usuario_model');
+		$this->load->model('roles_model');
+	}
+
+	public function index() {
+
+		$data['datos'] = $this->usuario_model->leer();
+		$data['roles'] = $this->roles_model->leer();
+		$this->load->view('registro_personal/index', $data);
+
+	}
+
+	public function leerUsuario($id = NULL) {
+		$data = $this->usuario_model->leeUsuario($id);
+		$this->output->set_content_type('application/json')->set_output(json_encode($data));
+	}
+
+	function guardarUsuario() {
+
+		$data = array(
+			'nombre' => $this->input->post('nombre'),
+			'apellido' => $this->input->post('apellido'),
+			'cedula' => $this->input->post('cedula'),
+			'email' => $this->input->post('email'),
+			'usuario' => $this->input->post('usuario'),
+			'cargo' => $this->input->post('combo-cargo'),
+			'telefono' => $this->input->post('telefono'),
+			'direccion' => $this->input->post('direccion'),
+			'password' => $this->input->post('password'));
+		$ident = $this->input->post('ident');
+		if ($this->input->post('ident') !== NULL && !empty($ident)) {
+			$this->usuario_model->actualizar($this->input->post('ident'), $data);
+			$this->output->set_content_type('application/json')->set_output(json_encode(array('resultado' => 'ok')));
+		} else {
+			$this->usuario_model->insert($data);
+			$this->output->set_content_type('application/json')->set_output(json_encode(array('resultado' => 'ok2')));
+		}
+
+	}
+
+	public function eliminarUsuario() {
+		$this->usuario_model->eliminar($this->input->post('ident'));
+	}
+}
+?>

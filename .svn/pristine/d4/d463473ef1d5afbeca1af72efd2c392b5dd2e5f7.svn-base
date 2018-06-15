@@ -1,0 +1,15 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class FichaPredial extends CI_Controller {
+	public function __construct() {
+        parent::__construct();
+    }
+
+    public function index(){
+    	$this->load->view('common/header.php');
+    	$this->load->view('ficha_predial/index');
+    	$this->load->view('common/footer.php');
+    }
+}
+?>

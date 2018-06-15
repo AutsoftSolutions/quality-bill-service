@@ -1,0 +1,68 @@
+<div class="row_5">
+    <div class="container">
+        <form name="form1" method="post" action="" class="form-horizontal">
+          <div class="form-group">
+            <label class="control-label col-xs-1">Proyecto:</label>
+          <div class="col-xs-2">
+              <input type="text" class="form-control" placeholder="Proyecto">
+          </div>
+            <label class="control-label col-xs-2">Predio N°:</label>
+          <div class="col-xs-2">
+              <input type="text" class="form-control" placeholder="Predio" >
+          </div>
+        </div>
+    </form>
+<div id="content">
+	<div class="footerlogo">
+     <div class="menuheader">
+          <div class="container">
+            <nav class="navbar navbar-default navbar-static-top tm_navbar" role="navigation">
+                <ul class="nav sf-menu">
+                  <li><a href="<?php echo base_url('index.php/asignaciontrabajoporareas');?>">Reparto(Juridico) </a></li>
+                  <li><a href="<?php echo base_url('index.php/asignacionpredial');?>">Reparto(predial)</a></li>
+                  <li class="active"><a href="<?php echo base_url('index.php/asignacionsocial');?>">Asignacion(Social)</a></li>
+                  <li><a href="#">Reportes</a></li>
+                </ul>
+            </nav>
+          </div>
+      </div>
+      </div>
+
+    <div class="row_5">
+    <div class="container">
+      <form name="form1" method="post" action="">
+      <table width="726" border="1">
+        <tr>
+          <td width="138"><p>ABOGADO</p></td>
+          <td width="138">PREDIO N°</td>
+          <td width="138">FECHA DE INICIO</td>
+          <td width="145">FECHA DE FINALIZACION</td>
+          <td width="133">ESTADO</td>
+        </tr>
+        <tr>
+          <td height="35"><label>
+            <textarea name="Abogado" cols="40" id="Abogado"></textarea>
+          </label></td>
+          <td><label>
+            <textarea name="NumPredio" cols="10" id="NumPredio"></textarea>
+          </label></td>
+          <td><label>
+            <textarea name="Fecha_Inicio" cols="25" id="Fecha_Inicio"></textarea>
+          </label></td>
+          <td><label>
+            <textarea name="FechaFinal" cols="25" id="FechaFinal"></textarea>
+          </label></td>
+          <td><label>
+            <textarea name="Estado" cols="S" id="Estado"></textarea>
+          </label></td>
+        </tr>
+      </table>
+      <p>
+        <input type="submit" name="Enviar" id="Enviar" value="Enviar">
+      </p>
+    </form>
+<script src="js/plugins/morris/morris-data.js"></script>
+<input type="button" value="Continuar" onclick="window.open('estudiodetitulos')" />
+    </div>
+  </div>
+</div>

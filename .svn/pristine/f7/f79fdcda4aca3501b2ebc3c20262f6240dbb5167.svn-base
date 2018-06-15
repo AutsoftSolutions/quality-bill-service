@@ -1,0 +1,156 @@
+<header id="header">
+        <title>Estudio de Titulos</title>
+</header>
+<!--==============================content=================================-->
+<div id="content">
+    <!--==============================row5=================================-->
+    
+    <div class="footerlogo">
+     <div class="menuheader">
+          <div class="container">
+            <nav class="navbar navbar-default navbar-static-top tm_navbar" role="navigation">
+                <ul class="nav sf-menu">
+                  <li class="active"><a href="<?php echo base_url('index.php/estudiodetitulos');?>">Estudio de titulos</a>
+                  </li>
+                  <li><a href="<?php echo base_url('index.php/fichapredial');?>">Ficha predial</a></li>
+                  <li><a href="<?php echo base_url('index.php/planopredial');?>">Plano predial</a></li>
+                  <li><a href="#">Avaluos</a></li>
+                  <li><a href="#">Ficha social</a></li>
+                  <li><a href="#">Reportes</a></li>
+                </ul>
+            </nav>
+          </div>
+      </div>
+      </div>
+	<div class="row_5">
+    <div class="container">
+      <form id="form3" name="form3" method="post">
+  <table border="0">
+    <tbody>
+      <tr>
+        <td width="65">Tipo de inmueble</td>
+        <td width="150"><input type="text" class="form-control" name="Tipo_Inmueble" id="Tipo_Inmueble"></td>
+        <td width="35">Area</td>
+        <td width="150"><input type="text" class="form-control" name="Area" id="Area"></td>
+        <td width="50">Uso actual</td>
+        <td width="150"><input type="text" class="form-control" name="Uso_Actual" id="Uso_Actual"></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+    </form>
+<p>GRAVAMENES Y/O LIMITACIONES VIGENTES</p>
+<table border="1" id="table1">
+  <tbody>
+    <tr>
+      <th scope="col"><p>Documento</p></th>
+      <th scope="col">Fecha</th>
+      <th scope="col">Entidad</th>
+      <th scope="col">Municipio</th>
+      <th scope="col">Oficio de solicitud</th>
+      <th scope="col">Tipo de saneamiento</th>
+      <th scope="col">Estado</th>
+      <th scope="col">PDF</th>
+      <th scope="col">INGRESAR-ELIMINAR</th>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    </tbody>
+</table>
+<p><input type="button" name="Agregar" id="Nuevo" value="Nuevo" onClick="window.open('estudiodetitulos/popgravamenes', 'popup', 'left=390, top=200, width=450, height=420, toolbar=0, resizable=1')"></p>
+<p>PERSONA JURIDICA</p>
+<form action="" method="post" enctype="multipart/form-data" name="form4">
+  <table border="0">
+    <tr>
+      <td>Objeto social permite compra de inmuebles</td>
+      <td><label for="Objeto_Social">
+        <input type="checkbox" name="Objeto_Social" id="Objeto_Social">
+      </label></td>
+      <td>Facultad para celebrar contratos</td>
+      <td><label for="Facultad_Contratos"></label>
+      <input type="checkbox" name="Facultad_Contratos" id="Facultad_Contratos"></td>
+      <td>Cuantia</td>
+      <td><label for="Cuantia"></label>
+      <input type="text" name="Cuantia" id="Cuantia"></td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>Fecha de camara y comercio</td>
+      <td><label for="Camara_Comercio"></label>
+      <input type="text" name="Camara_Comercio" id="Camara_Comercio"></td>
+      <td>PDF</td>
+      <td><label for="Pdf_Estudio"></label>
+      <input type="file" name="Pdf_Estudio" id="Pdf_Estudio" accept="application/pdf"></td>
+      <td>Autorizacion estatutos legales</td>
+      <td><label for="Autorizacion_Estatutos"></label>
+      <input type="checkbox" name="Autorizacion_Estatutos" id="Autorizacion_Estatutos"></td>
+      <td>PDF</td>
+      <td><label for="pdf2_Est"></label>
+      <input type="file" name="pdf2_Est" id="pdf2_Est" accept="application/pdf"></td>
+    </tr>
+  </table>
+</form>
+<p>El acta se ajusta al derecho de acuerdo con los siguientes articulos</p>
+<form name="form5" method="post" action="">
+  <table border="0">
+    <tr>
+      <td><input type="checkbox" name="Cod_189" id="Cod_189">
+      <label for="Cod_189"></label></td>
+      <td>189 del Codigo del comercio</td>
+      <td><input type="checkbox" name="Cod_431" id="Cod_431">
+      <label for="Cod_431"></label></td>
+      <td>431 del Codigo de comercio (Sociedades anonimas)</td>
+      <td><input type="checkbox" name="Cod_435" id="Cod_435">
+      <label for="Cod_435"></label></td>
+      <td>435 del Codigo de comercio (Solicitud de familia)</td>
+    </tr>
+  </table>
+</form>
+</div>
+</div>
+</div>
+</div>
+

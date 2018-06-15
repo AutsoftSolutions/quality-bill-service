@@ -1,0 +1,52 @@
+<div class="row_5">
+    <div class="container">
+    	<table border="1" id="table1">
+        <tr>
+          <th>Descripcion</th>
+          <th>PDF</th>
+          <th>FECHA</th>
+        </tr>
+    </table>
+    <p><input type="button" name="Agregar" id="Nuevo" value="Nuevo"></p>
+    </div>
+</div>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        /**
+         * Funcion para añadir una nueva columna en la tabla
+         */
+        $("#Nuevo").click(function(){
+            // Obtenemos el numero de filas (td) que tiene la primera columna
+            // (tr) del id "tabla"
+            var tds=$("#table1 tr:first td").length;
+            // Obtenemos el total de columnas (tr) del id "tabla"
+            var trs=$("#table1 th").length;
+            var nuevaFila="<tr>";
+            for(var i=0;i<trs-1;i++){
+                // añadimos las columnas
+                nuevaFila+="<td>&nbsp;</td>";
+            }
+            // Añadimos una columna con el numero total de columnas.
+            // Añadimos uno al total, ya que cuando cargamos los valores para la
+            // columna, todavia no esta añadida
+            nuevaFila+="<td>&nbsp;";
+            nuevaFila+="</tr>";
+            $("#table1").append(nuevaFila);
+        });
+ 
+        /**
+         * Funcion para eliminar la ultima columna de la tabla.
+         * Si unicamente queda una columna, esta no sera eliminada
+         */
+        $("#Eliminar").click(function(){
+            // Obtenemos el total de columnas (tr) del id "tabla"
+            var trs=$("#table1 tr").length;
+            if(trs>1)
+            {
+                // Eliminamos la ultima columna
+                $("#table1 tr:last").remove();
+            }
+        });
+    });
+    </script>

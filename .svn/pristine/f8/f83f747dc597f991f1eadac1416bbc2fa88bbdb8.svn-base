@@ -1,0 +1,89 @@
+<header id="header">
+        <title>Plano Predial</title>
+</header>
+<!--==============================content=================================-->
+<div id="content">
+    <!--==============================row5=================================-->
+   
+    <div class="footerlogo">
+     <div class="menuheader">
+          <div class="container">
+            <nav class="navbar navbar-default navbar-static-top tm_navbar" role="navigation">
+                <ul class="nav sf-menu">
+                  <li><a href="<?php echo base_url('index.php/estudiodetitulos');?>">Estudio de titulos</a>
+                  </li>
+                  <li><a href="<?php echo base_url('index.php/fichapredial');?>">Ficha predial</a></li>
+                  <li class="active"><a href="<?php echo base_url('index.php/planopredial');?>">Plano predial</a></li>
+                  <li><a href="#">Avaluos</a></li>
+                  <li><a href="#">Ficha social</a></li>
+                  <li><a href="#">Reportes</a></li>
+                </ul>
+            </nav>
+          </div>
+      </div>
+      </div>
+      <div class="row_5">
+    <div class="container">
+    	<form action="<?php echo base_url('index.php/planopredial/create');?>" method="post" enctype="multipart/form-data" name="form3" class="form-horizontal">
+      		<div class="form-group">
+        		<label class="control-label col-xs-1">Plano PDF:</label>
+        	<div class="col-xs-2">
+            	<input type="file" name="PDF" id="Pla_Pdf" accept="application/pdf">
+        	</div>
+        		<label class="control-label col-xs-2">Plano DWG:</label>
+        	<div class="col-xs-3">
+            	<input type="file" name="DWG" id="Pla_dwg" accept=".dwg">
+        	</div>
+        		<label class="control-label col-xs-2">Area total del terreno(m2):</label>
+        	<div class="col-xs-2">
+            	<input type="text" class="form-control" placeholder="Area" name="area_total_terreno">
+        	</div>
+            </div>
+            <div class="form-group">
+        		<label class="control-label col-xs-1">Abscisa Inicial:</label>
+        	<div class="col-xs-2">
+            	<input type="text" class="form-control" placeholder="Abscisa" name="abscisa_inicial">
+        	</div>
+        		<label class="control-label col-xs-2">Abscisa Final:</label>
+        	<div class="col-xs-2">
+            	<input type="text" class="form-control" placeholder="Abscisa" name="abscisa_final">
+        	</div>
+        		<label class="control-label col-xs-3">Area Requerida(m2):</label>
+        	<div class="col-xs-2">
+            	<input type="text" class="form-control" placeholder="Area" value="<?php if($predio!==null && $predio->AREA_REQUERIDA!==null) echo($predio->AREA_REQUERIDA); ?>" name="area_requerida">
+        	</div>
+            </div>
+            <div class="form-group">
+        		<label class="control-label col-xs-10">Area remanente(m2):</label>
+        	<div class="col-xs-2">
+            	<input type="text" class="form-control" placeholder="Area" name="area_remanente">
+        	</div>
+            </div>
+            <div class="form-group">
+        		<label class="control-label col-xs-10">Area sobrante(m2):</label>
+        	<div class="col-xs-2">
+            	<input type="text" class="form-control" placeholder="Area" name="area_sobrante">
+        	</div>
+            </div>
+            <div class="form-group">
+        		<label class="control-label col-xs-10">Area total requerida(m2):</label>
+        	<div class="col-xs-2">
+            	<input type="text" class="form-control" placeholder="Area" name="area_total_requerida">
+        	</div>
+            </div>
+             <input type="submit" class="btn btn-primary" value="Actualizar">
+            <div class="form-group">
+        		<label class="control-label col-xs-1">Responsable:</label>
+        	<div class="col-xs-2">
+            	<input type="text" class="form-control" placeholder="Responsable">
+        	</div>
+            	<label class="control-label col-xs-1">Fecha:</label>
+        	<div class="col-xs-2">
+            	<input type="text" class="form-control" placeholder="Fecha">
+        	</div>
+            </div>
+    </form>
+    </div>
+    </div>
+</div>
+</div>

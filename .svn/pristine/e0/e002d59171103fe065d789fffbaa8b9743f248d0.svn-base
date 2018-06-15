@@ -1,0 +1,22 @@
+
+<!doctype html>
+<html>
+	<head>
+		<title>Bienvenido</title>
+		<meta charset='utf-8'>
+	</head>
+	<body>
+		<form action="<?php echo base_url('index.php/planopredial/create');?>" method="post">
+			PLANO PDF: <input type="text" name="plano_PDF"/><br />
+			plano_DWG: <input type="text" name="plano_DWG"/><br />
+			abscisa_inicial: <input type="text" name="abscisa_inicial"/><br />
+			abscisa_final: <input type="text" name="abscisa_final"/><br />
+			area_total_terreno: <input type="text" name="area_total_terreno"/><br />
+			area_requerida: <input type="text" name="area_requerida"/><br />
+			area_remanente: <input type="text" name="area_remanente"/><br />
+			area_sobrante: <input type="text" name="area_sobrante"/><br />
+			area_total_requerida: <input type="text" name="area_total_requerida"/><br />
+			<input type="submit" value="Entrar">	 
+		</form>
+	</body>
+</html>

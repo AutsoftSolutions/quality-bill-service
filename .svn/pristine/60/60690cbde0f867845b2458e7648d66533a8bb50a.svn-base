@@ -1,0 +1,257 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Schema inmobiliaria
+-- -----------------------------------------------------
+DROP SCHEMA IF EXISTS `inmobiliaria` ;
+
+-- -----------------------------------------------------
+-- Schema inmobiliaria
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `inmobiliaria` DEFAULT CHARACTER SET latin1 ;
+USE `inmobiliaria` ;
+
+-- -----------------------------------------------------
+-- Table `inmobiliaria`.`estado_fase2`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `inmobiliaria`.`estado_fase2` ;
+
+CREATE TABLE IF NOT EXISTS `inmobiliaria`.`estado_fase2` (
+  `CODIGO` INT(11) NOT NULL AUTO_INCREMENT COMMENT 'Código de indentificacion estado fase2',
+  `DESCRIPCION` VARCHAR(30) CHARACTER SET 'latin1' NULL DEFAULT NULL COMMENT 'Descripción estado fase2',
+  PRIMARY KEY (`CODIGO`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `inmobiliaria`.`estado_fase`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `inmobiliaria`.`estado_fase` ;
+
+CREATE TABLE IF NOT EXISTS `inmobiliaria`.`estado_fase` (
+  `CODIGO` INT(11) NOT NULL AUTO_INCREMENT COMMENT 'Código de indentificacion estado fase',
+  `DESCRIPCION` VARCHAR(30) CHARACTER SET 'latin1' NULL DEFAULT NULL COMMENT 'Descripción estado fase',
+  PRIMARY KEY (`CODIGO`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `inmobiliaria`.`unidad_funcional`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `inmobiliaria`.`unidad_funcional` ;
+
+CREATE TABLE IF NOT EXISTS `inmobiliaria`.`unidad_funcional` (
+  `CODIGO` INT(11) NOT NULL AUTO_INCREMENT COMMENT 'Código de identificación de la unidad funcional',
+  `DESCRIPCION` VARCHAR(30) CHARACTER SET 'latin1' NULL DEFAULT NULL COMMENT 'Descripción unidad funcional',
+  PRIMARY KEY (`CODIGO`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `inmobiliaria`.`predio_juridico`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `inmobiliaria`.`predio_juridico` ;
+
+CREATE TABLE IF NOT EXISTS `inmobiliaria`.`predio_juridico` (
+  `COD_GIS` VARCHAR(11) CHARACTER SET 'latin1' NOT NULL COMMENT 'Codigo unico del objeto',
+  `FMI` VARCHAR(11) CHARACTER SET 'latin1' NULL DEFAULT NULL COMMENT 'Folio de matricula según r1 y2 del objeto',
+  `CED_CATAS` VARCHAR(20) CHARACTER SET 'latin1' NULL DEFAULT NULL COMMENT 'Cedula catastral del IGAC',
+  `NOMBRE` VARCHAR(30) CHARACTER SET 'latin1' NULL DEFAULT NULL COMMENT 'Nombre del objeto en R1Y R2',
+  `VEREDA` VARCHAR(30) CHARACTER SET 'latin1' NULL DEFAULT NULL COMMENT 'Vereda del objeto en R1 Y R2',
+  `MUNICIPIO` VARCHAR(30) CHARACTER SET 'latin1' NULL DEFAULT NULL COMMENT 'Municipio del objeto en R1 Y R2',
+  `DEPARTAMENTO` VARCHAR(30) CHARACTER SET 'latin1' NULL DEFAULT NULL COMMENT 'Departamento del objeto en R1 Y R2',
+  `UNID_FUNCIO` INT(11) NULL DEFAULT NULL COMMENT 'Numero de unidad funcional segune el proyecto',
+  `ESTADO_FASE` INT(11) NULL DEFAULT NULL COMMENT 'Estado del objeto en la fase uno proyecto',
+  PRIMARY KEY (`COD_GIS`),
+  INDEX `predio_j_unidad_funcional` (`UNID_FUNCIO` ASC),
+  INDEX `predio_j_estado_fase` (`ESTADO_FASE` ASC),
+  CONSTRAINT `predio_j_estado_fase`
+    FOREIGN KEY (`ESTADO_FASE`)
+    REFERENCES `inmobiliaria`.`estado_fase` (`CODIGO`),
+  CONSTRAINT `predio_j_unidad_funcional`
+    FOREIGN KEY (`UNID_FUNCIO`)
+    REFERENCES `inmobiliaria`.`unidad_funcional` (`CODIGO`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `inmobiliaria`.`propietario`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `inmobiliaria`.`propietario` ;
+
+CREATE TABLE IF NOT EXISTS `inmobiliaria`.`propietario` (
+  `NOMBRE` VARCHAR(60) CHARACTER SET 'latin1' NULL DEFAULT NULL COMMENT 'Nombre del propietario encontrado en campo',
+  `CEDULA` VARCHAR(25) CHARACTER SET 'latin1' NOT NULL COMMENT 'cedula del propietario encontrado en campo',
+  `EMAIL` VARCHAR(30) CHARACTER SET 'latin1' NULL DEFAULT NULL COMMENT 'correo electronico del propietario encontrado en campo',
+  `TELEFONO` INT(12) NULL DEFAULT NULL COMMENT 'telefono del propietario',
+  PRIMARY KEY (`CEDULA`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `inmobiliaria`.`predio_gestion`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `inmobiliaria`.`predio_gestion` ;
+
+CREATE TABLE IF NOT EXISTS `inmobiliaria`.`predio_gestion` (
+  `COD_GIS` VARCHAR(11) CHARACTER SET 'latin1' NULL DEFAULT NULL COMMENT 'llave foranea de predio juridico',
+  `ID_GESTION` VARCHAR(14) CHARACTER SET 'latin1' NOT NULL COMMENT 'identificador unico de lo que verdaderamente exitente en campo',
+  `PREDIO_No` INT(11) NULL DEFAULT NULL,
+  `SEC_TRAMO` VARCHAR(50) CHARACTER SET 'latin1' NULL DEFAULT NULL COMMENT 'tramo done se encuentra ubicado el predio',
+  `MARGEN` VARCHAR(15) CHARACTER SET 'latin1' NULL DEFAULT NULL COMMENT 'lado que es afectado por la via según su eje principal',
+  `LONG_EFECT` DOUBLE NULL DEFAULT NULL COMMENT 'longitud por en mt de la fectacion de la via en el predio',
+  `DIRECCION` VARCHAR(30) CHARACTER SET 'latin1' NULL DEFAULT NULL COMMENT 'cireccion del predio en campo',
+  `FMI` VARCHAR(11) CHARACTER SET 'latin1' NULL DEFAULT NULL COMMENT 'fmi encontrado en campo',
+  `CED_CATASRAL` VARCHAR(20) CHARACTER SET 'latin1' NULL DEFAULT NULL COMMENT 'cedula catastral encontrada en campo',
+  `VEREDA` VARCHAR(30) CHARACTER SET 'latin1' NULL DEFAULT NULL COMMENT 'nombre de la vereda donde se encuentra el predio en campo',
+  `REQUE_PREDIO` VARCHAR(50) CHARACTER SET 'latin1' NULL DEFAULT NULL COMMENT 'para que es requerido el predio',
+  `CLASIF_SUELO` VARCHAR(25) CHARACTER SET 'latin1' NULL DEFAULT NULL COMMENT 'que tipo de suelo es',
+  `ACTIVI_ECONO` VARCHAR(40) CHARACTER SET 'latin1' NULL DEFAULT NULL COMMENT 'actividad economica que se desarola en el inmueble',
+  `TOPOGRAFIA` VARCHAR(60) CHARACTER SET 'latin1' NULL DEFAULT NULL COMMENT 'tipo de topografia predomina en el predio',
+  `AREA_SIG` DOUBLE NULL DEFAULT NULL COMMENT 'area sig del predio en mt2',
+  `AREA_TERRENO` DOUBLE NULL DEFAULT NULL COMMENT 'area obtenda en campo del predio, MT2',
+  `AREA_REQUERIDA` DOUBLE NULL DEFAULT NULL COMMENT 'area requerida del proyecto, MT2',
+  `AREA_REMANENTE` DOUBLE NULL DEFAULT NULL COMMENT 'area remanente del predio,MT2',
+  `AREA_SOBRANTE` DOUBLE NULL DEFAULT NULL COMMENT 'area sobrante del predio,MT2',
+  `TOTAL_AREA_REQUE` DOUBLE NULL DEFAULT NULL COMMENT 'total del area acomprar,MT2',
+  `OBSERVACIONES` VARCHAR(300) CHARACTER SET 'latin1' NULL DEFAULT NULL COMMENT 'observciones sobre lo encontrado en campo,MT2',
+  `ESTADO_FASE2` INT(11) NULL DEFAULT NULL COMMENT 'estado de la gestion en fase 2',
+  `TOTAL_ARE_CONST` DOUBLE NULL DEFAULT NULL COMMENT 'total del area construida en e predio mt 2',
+  `CEDULA_PROPIETARIO` VARCHAR(25) CHARACTER SET 'latin1' NULL DEFAULT NULL COMMENT 'cedula del propietario encontrado en campo',
+  PRIMARY KEY (`ID_GESTION`),
+  INDEX `predio_g_predio_j` (`COD_GIS` ASC),
+  INDEX `predio_g_estado_f2` (`ESTADO_FASE2` ASC),
+  INDEX `predio_g_propietario` (`CEDULA_PROPIETARIO` ASC),
+  CONSTRAINT `predio_g_estado_f2`
+    FOREIGN KEY (`ESTADO_FASE2`)
+    REFERENCES `inmobiliaria`.`estado_fase2` (`CODIGO`),
+  CONSTRAINT `predio_g_predio_j`
+    FOREIGN KEY (`COD_GIS`)
+    REFERENCES `inmobiliaria`.`predio_juridico` (`COD_GIS`),
+  CONSTRAINT `predio_g_propietario`
+    FOREIGN KEY (`CEDULA_PROPIETARIO`)
+    REFERENCES `inmobiliaria`.`propietario` (`CEDULA`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `inmobiliaria`.`tipo_afectacion_predio_g`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `inmobiliaria`.`tipo_afectacion_predio_g` ;
+
+CREATE TABLE IF NOT EXISTS `inmobiliaria`.`tipo_afectacion_predio_g` (
+  `CODIGO` INT(11) NOT NULL COMMENT 'Código de indentificacion tipo de afectacion',
+  `DESCRIPCION` VARCHAR(20) CHARACTER SET 'latin1' NULL DEFAULT NULL COMMENT 'Descripción tipo de afectacion',
+  PRIMARY KEY (`CODIGO`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `inmobiliaria`.`afectacion_predio_gestion`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `inmobiliaria`.`afectacion_predio_gestion` ;
+
+CREATE TABLE IF NOT EXISTS `inmobiliaria`.`afectacion_predio_gestion` (
+  `ABSC` INT(11) NULL DEFAULT NULL COMMENT 'valor entero en  km donde empieza/termina la afectacion sobre el predio',
+  `TIPO_AFECTACION` INT(11) NOT NULL COMMENT 'inicio/fin afectacion',
+  `ID_GESTION` VARCHAR(14) CHARACTER SET 'latin1' NOT NULL COMMENT 'llave foranea de predio gestion',
+  `ABSC2` VARCHAR(20) CHARACTER SET 'latin1' NULL DEFAULT NULL COMMENT 'la otra unidad de lleva componentes alfanumerico  hace parte ABSC_INICIAL/FINAL',
+  PRIMARY KEY (`TIPO_AFECTACION`, `ID_GESTION`),
+  INDEX `afectacion_pg_predio_g` (`ID_GESTION` ASC),
+  CONSTRAINT `afectacion_pg_predio_g`
+    FOREIGN KEY (`ID_GESTION`)
+    REFERENCES `inmobiliaria`.`predio_gestion` (`ID_GESTION`),
+  CONSTRAINT `afectacion_pg_tipo_apg`
+    FOREIGN KEY (`TIPO_AFECTACION`)
+    REFERENCES `inmobiliaria`.`tipo_afectacion_predio_g` (`CODIGO`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `inmobiliaria`.`tipo_lindero`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `inmobiliaria`.`tipo_lindero` ;
+
+CREATE TABLE IF NOT EXISTS `inmobiliaria`.`tipo_lindero` (
+  `CODIGO` INT(11) NOT NULL AUTO_INCREMENT COMMENT 'Código identificación tipo de lindero',
+  `DESCRIPCION` VARCHAR(20) CHARACTER SET 'latin1' NULL DEFAULT NULL COMMENT 'Descripción tipo de lindero',
+  PRIMARY KEY (`CODIGO`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `inmobiliaria`.`linderos`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `inmobiliaria`.`linderos` ;
+
+CREATE TABLE IF NOT EXISTS `inmobiliaria`.`linderos` (
+  `ID_GESTION` VARCHAR(14) CHARACTER SET 'latin1' NOT NULL COMMENT 'llave foranea de predio gestion',
+  `TIPO_LINDERO` INT(11) NOT NULL,
+  `LONGITUD` DOUBLE NULL DEFAULT NULL COMMENT 'longitud en mt con el predio colindante',
+  `COD_PREDIO_COLINDA` VARCHAR(14) CHARACTER SET 'latin1' NULL DEFAULT NULL COMMENT 'codigo del predio que colinda',
+  PRIMARY KEY (`ID_GESTION`, `TIPO_LINDERO`),
+  INDEX `linderos_tipo_l` (`TIPO_LINDERO` ASC),
+  CONSTRAINT `linderos_predio_g`
+    FOREIGN KEY (`ID_GESTION`)
+    REFERENCES `inmobiliaria`.`predio_gestion` (`ID_GESTION`),
+  CONSTRAINT `linderos_tipo_l`
+    FOREIGN KEY (`TIPO_LINDERO`)
+    REFERENCES `inmobiliaria`.`tipo_lindero` (`CODIGO`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `inmobiliaria`.`pregunta_predio_g`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `inmobiliaria`.`pregunta_predio_g` ;
+
+CREATE TABLE IF NOT EXISTS `inmobiliaria`.`pregunta_predio_g` (
+  `CODIGO` INT(11) NOT NULL COMMENT 'Código pregunta predio gestion',
+  `DESCRIPCION` VARCHAR(50) CHARACTER SET 'latin1' NULL DEFAULT NULL COMMENT 'descripcion pregunta predio gestion',
+  `ORDEN` INT(11) NULL DEFAULT NULL COMMENT 'orden pregunta predio gestion',
+  PRIMARY KEY (`CODIGO`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `inmobiliaria`.`respuesta_pregunta_predio_gestion`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `inmobiliaria`.`respuesta_pregunta_predio_gestion` ;
+
+CREATE TABLE IF NOT EXISTS `inmobiliaria`.`respuesta_pregunta_predio_gestion` (
+  `CODIGO_PREGUNTA` INT(11) NOT NULL COMMENT 'Código pregunta predio gestion',
+  `ID_GESTION` VARCHAR(14) CHARACTER SET 'latin1' NOT NULL COMMENT 'llave foranea de predio gestion',
+  `RESPUESTA` VARCHAR(20) CHARACTER SET 'latin1' NULL DEFAULT NULL COMMENT 'Respuesta a pregunta predio gestion',
+  PRIMARY KEY (`CODIGO_PREGUNTA`, `ID_GESTION`),
+  INDEX `respuesta_ppg_predio_g` (`ID_GESTION` ASC),
+  CONSTRAINT `respuesta_ppg_predio_g`
+    FOREIGN KEY (`ID_GESTION`)
+    REFERENCES `inmobiliaria`.`predio_gestion` (`ID_GESTION`),
+  CONSTRAINT `respuesta_ppg_pregunta_pg`
+    FOREIGN KEY (`CODIGO_PREGUNTA`)
+    REFERENCES `inmobiliaria`.`pregunta_predio_g` (`CODIGO`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

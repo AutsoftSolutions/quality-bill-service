@@ -1,0 +1,23 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class EstudioDeTitulos extends CI_Controller {
+	public function __construct() {
+        parent::__construct();
+    }
+
+    public function index(){
+    	$this->load->model('predio');
+		$predio_db = $this->predio->obtenerPredio(284);
+		$data = array('predio' => isset($predio_db[0])?$predio_db[0]:NULL );
+    	$this->load->view('common/header.php');
+    	$this->load->view('common/infogeneralpredio.php',$data);
+    	$this->load->view('estudio_de_titulos/index');
+    	$this->load->view('common/footer.php');    	
+    }
+
+    public function popgravamenes(){        
+       $this->load->view('estudio_de_titulos/popgravamenes');
+    }
+}
+?>

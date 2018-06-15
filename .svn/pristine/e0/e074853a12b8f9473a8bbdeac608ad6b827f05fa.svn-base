@@ -1,0 +1,53 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class IngresoDePredios extends CI_Controller {
+	public function __construct() {
+        parent::__construct();
+        $this->load->model('ingresodepredios_model');
+        $this->load->model('proyecto_model');
+    }
+
+    public function index($id=NULL){
+    	if(is_null($id)){
+    		$id=1;
+    	}
+    	$data['proyecto']=$this->proyecto_model->leer_proyecto($id);    	
+    	$data['datos']=$this->ingresodepredios_model->leer($id);    	
+    	$this->load->view('ingreso_de_predios/index', $data);    	
+    }
+    public function popingresopredios(){
+    	$this->load->view('ingreso_de_predios/popingresopredios');    	
+    	
+    }
+    function ingreso(){
+    	$data= array(
+    		'MatrInm' => $this->input->post('MatrInm'),
+    		'Cedcat' => $this->input->post('Cedcat'),
+    		'municipio' => $this->input->post('municipio'),
+    		'Dpto' => $this->input->post('Dpto'),
+    		'Unidafunc' => $this->input->post('Unidafunc'));
+    	$this->ingresodepredios_model->insert($data);
+    	$this->load->view('ingreso_de_predios/popingresopredios'); 
+    }
+    public function editar(){
+    	$data['segmento']= $this->uri->segment(3);
+    	if(!$data['segmento']){
+    	$data['datos'] = $this->ingresodepredios_model->leer();}
+    	else{
+    		$data['datos'] = $this->ingresodepredios_model->lee($data['segmento']);}
+    	$this->load->view('ingreso_de_predios/editaringresopredios', $data); 
+    }
+    public function actualizar(){
+    	$data= array(
+    		'NoPredio' => $this->input->post('NoPredio'),
+    		'MatrInm' => $this->input->post('MatrInm'),
+    		'Cedcat' => $this->input->post('Cedcat'),
+    		'municipio' => $this->input->post('municipio'),
+    		'dpto' => $this->input->post('dpto'),
+    		'Unidadfunc' => $this->input->post('Unidadfunc'));
+    	$this->ingresodepredios_model->actualizar($this->uri->segment(3), $data);
+    	$this->load->view('ingreso_de_predios/editaringresopredios'); 
+    }
+}
+?>

@@ -1,0 +1,13 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Predio extends CI_Model {
+	function obtenerPredio($predio){
+		$this->db->from('predio_gestion');
+		$this->db->where('PREDIO_No',$predio);
+		$q = $this->db->get();
+
+		return $q->result();
+	}
+
+}

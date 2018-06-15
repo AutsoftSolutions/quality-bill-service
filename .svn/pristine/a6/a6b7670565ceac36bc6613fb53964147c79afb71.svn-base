@@ -1,0 +1,58 @@
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
+
+class IngresoDePredios extends CI_Controller {
+	public function __construct() {
+		parent::__construct();
+		$this->load->model('ingresodepredios_model');
+		$this->load->model('proyecto_model');
+	}
+
+	public function index($id = NULL) {
+		if (is_null($id)) {
+			$id = 1;
+		}
+		$data['proyecto'] = $this->proyecto_model->leer_proyecto($id);
+		$data['datos'] = $this->ingresodepredios_model->leer($id);
+		$this->load->view('ingreso_de_predios/index', $data);
+	}
+
+	function guardarPredio() {
+
+		$data = array(
+			'NoPredio' => $this->input->post('NoPredio'),
+			'Unidadfunc' => $this->input->post('Unidadfunc'),
+			'MatrInm' => $this->input->post('MatrInm'),
+			'Cedcat' => $this->input->post('Cedcat'),
+			'municipio' => $this->input->post('municipio'),
+			'dpto' => $this->input->post('dpto'),
+			'CodProyecto' => $this->input->post('codproyecto'));
+		$cod_gis = $this->input->post('cod_gis');
+		if ($this->input->post('cod_gis') !== NULL && !empty($cod_gis)) {
+			$this->ingresodepredios_model->actualizar($this->input->post('cod_gis'), $data);
+			$this->output->set_content_type('application/json')->set_output(json_encode(array('resultado' => 'ok')));
+		} else {
+			$this->ingresodepredios_model->insert($data);
+			$this->output->set_content_type('application/json')->set_output(json_encode(array('resultado' => 'ok2')));
+		}
+
+	}
+
+	public function editar() {
+		$data['segmento'] = $this->uri->segment(3);
+		if (!$data['segmento']) {
+			$data['datos'] = $this->ingresodepredios_model->leer();} else {
+			$data['datos'] = $this->ingresodepredios_model->lee($data['segmento']);}
+		$this->load->view('ingreso_de_predios/editaringresopredios', $data);
+	}
+
+	public function leerPredio($id = NULL) {
+		$data = $this->ingresodepredios_model->lee($id);
+		$this->output->set_content_type('application/json')->set_output(json_encode($data));
+	}
+
+	public function eliminarPredio() {
+		$this->ingresodepredios_model->eliminar($this->input->post('cod_gis'));
+	}
+}
+?>

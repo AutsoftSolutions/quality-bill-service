@@ -1,0 +1,25 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class AsignacionTrabajoPorAreas extends CI_Controller {
+	public function __construct() {
+        parent::__construct();
+        $this->load->model('usuario_model');
+    }
+
+    public function index(){
+    	$data['cargo'] = 2;
+    	$this->load->view('common/header.php');
+    	$this->load->view('asignacion_trabajo_por_areas/index',$data);
+    	$this->load->view('common/footer.php'); 
+    	
+    }
+
+    public function buscarUsuario(){
+    	$nombre = $this->input->post('nombre');
+    	$cargo = $this->input->post('cargo');
+		$data['datos'] = $this->usuario_model->obtenerUsuarioNombreCargo($nombre,$cargo);
+		$this->output->set_content_type('application/json')->set_output(json_encode($data));
+	}
+}
+?>

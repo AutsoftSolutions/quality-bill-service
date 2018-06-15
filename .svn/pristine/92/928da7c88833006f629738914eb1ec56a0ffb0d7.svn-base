@@ -1,0 +1,48 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class ingresodepredios_model extends CI_Model {
+	function __construct() {
+		parent::__construct();
+		$this->load->database();
+	}
+
+	function insert($data) {
+		$this->db->insert('predio_juridico', array('PREDIO_No' => $data['NoPredio'], 'MAT_INMOBILIARIA' => $data['MatrInm'], 'CED_CATAS' => $data['Cedcat'], 'MUNICIPIO' => $data['municipio'], 'DEPARTAMENTO' => $data['dpto'], 'UNID_FUNCIO' => $data['Unidadfunc'], 'COD_PROYECTO' => $data['CodProyecto']));
+	}
+	function leer($id) {
+		$this->db->where('COD_PROYECTO', $id);
+		$query = $this->db->get('predio_juridico');
+		if ($query->num_rows() > 0) {
+			return $query;
+		} else {
+			return false;
+		}
+
+	}
+	function lee($id) {
+		$this->db->where('COD_GIS', $id);
+		$query = $this->db->get('predio_juridico');
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		} else {
+			return false;
+		}
+
+	}
+	function actualizar($id, $data) {
+		$datos = array('PREDIO_No' => $data['NoPredio'], 'MAT_INMOBILIARIA' => $data['MatrInm'], 'CED_CATAS' => $data['Cedcat'], 'MUNICIPIO' => $data['municipio'], 'DEPARTAMENTO' => $data['dpto'], 'UNID_FUNCIO' => $data['Unidadfunc']);
+		$this->db->where('COD_GIS', $id);
+		$query = $this->db->update('predio_juridico', $datos);
+	}
+	function eliminar($id) {
+		$this->db->where('COD_GIS', $id);
+		$this->db->delete('predio_juridico');
+	}
+
+	function leerPredioSinAsignarCargo($cargo, $proyecto) {
+		$sql = 'SELECT predio_juridico.* FROM predio_juridico left JOIN asignacion_predios INNER JOIN `usuario` ON `asignacion_predios`.`ID_TRABAJADOR` = `usuario`.`CEDULA` AND `usuario`.`CARGO` = ? ON predio_juridico.`COD_GIS` = `asignacion_predios`.`ID_PREDIO` where `predio_juridico`.`COD_PROYECTO`= 1 AND asignacion_predios.`ID_PREDIO` is null';
+		$query = $this->db->query($sql, array($cargo));
+		return $query->result();
+	}
+}

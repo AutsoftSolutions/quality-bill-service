@@ -1,0 +1,38 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class PlanoPredial extends CI_Controller {
+	function _costruct(){
+		parent::_construct();
+	}
+	function index(){
+		$this->load->model('predio');
+		$predio_db = $this->predio->obtenerPredio(1);
+		$data['predio'] =  isset($predio_db[0])?$predio_db[0]:NULL;
+		$this->load->view('common/header.php');
+		$this->load->view('common/infogeneralpredio.php',$data);
+		$this->load->view('plano_predial/index');
+		$this->load->view('common/footer.php');
+	}
+
+	public function create()
+	{
+		$plano_PDF = $this->input->post('plano_PDF');
+		$plano_DWG = $this->input->post('plano_DWG');
+		$abscisa_inicial = $this->input->post('abscisa_inicial');
+		$abscisa_final = $this->input->post('abscisa_final');
+		$area_total_terreno = $this->input->post('area_total_terreno');
+		$area_requerida = $this->input->post('area_requerida');
+		$area_remanente = $this->input->post('area_remanente');
+		$area_sobrante = $this->input->post('area_sobrante');
+		$area_total_requerida = $this->input->post('area_total_requerida');
+
+		$this->load->model('planopredial_model');
+		$result = $this->planopredial_model->nuevo_planopredial($plano_PDF,$plano_DWG,$abscisa_inicial,$abscisa_final,$area_total_terreno,$area_requerida,$area_remanente,$area_sobrante,$area_total_requerida);
+
+		redirect(base_url("index.php/planopredial"), "refresh");
+	}
+
+	
+}
+?>

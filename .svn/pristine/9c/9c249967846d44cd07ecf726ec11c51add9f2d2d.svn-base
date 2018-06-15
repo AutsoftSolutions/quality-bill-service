@@ -1,0 +1,19 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class FichaPredial extends CI_Controller {
+	public function __construct() {
+        parent::__construct();
+    }
+
+    public function index(){
+    	$this->load->model('predio');
+		$predio_db = $this->predio->obtenerPredio(1);
+		$data = array('predio' => isset($predio_db[0])?$predio_db[0]:NULL );
+    	$this->load->view('common/header.php');
+    	$this->load->view('common/infogeneralpredio.php',$data);
+    	$this->load->view('ficha_predial/index');
+    	$this->load->view('common/footer.php');
+    }
+}
+?>

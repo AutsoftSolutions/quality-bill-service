@@ -1,0 +1,35 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class PaginaJefe extends CI_Controller {
+	public function __construct() {
+		parent::__construct();
+		$this->load->model('Proyecto_model');
+	}
+
+	public function index() {
+		$data['proyectos'] = $this->Proyecto_model->leer();
+		$this->load->view('common/header.php');
+		$this->load->view('pagina_jefe/index', $data);
+		$this->load->view('common/footer.php');
+	}
+
+	public function newproject() {
+
+		if ($this->input->post('nuevoproyecto') != '') {
+			/*Perform insert operation here*/
+
+			$nuevo_proyecto = $this->input->post('nuevo_proyecto');
+			$result = $this->Proyecto_model->nuevo_proyecto($nuevo_proyecto);
+			redirect("ingresodepredios/" . $result);
+
+		}
+
+	}
+	public function leerProyecto($id = NULL) {
+		$data = $this->Proyecto_model->leer_proyecto($id);
+		$this->output->set_content_type('application/json')->set_output(json_encode($data));
+	}
+
+}
+?>

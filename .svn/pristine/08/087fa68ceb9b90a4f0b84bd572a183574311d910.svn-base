@@ -1,0 +1,62 @@
+ <div class="row_5">
+    <div class="container">
+        <form name="form1" method="post" action="" class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-xs-1">Proyecto:</label>
+            <div class="col-xs-2">
+                <input type="text" class="form-control" placeholder="Proyecto">
+            </div>
+                <label class="control-label col-xs-2">Predio N°:</label>
+            <div class="col-xs-2">
+                <input type="text" class="form-control" placeholder="Predio" value="<?php if($predio!==null && $predio->PREDIO_No!==null) echo($predio->PREDIO_No); ?>">
+            </div>
+            </div>
+    </form>
+    <p>
+      <script src="js/plugins/morris/morris-data.js"></script>
+    </p>
+    <form action="" method="post" enctype="multipart/form-data" name="form2" class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-xs-1">Cedula catastral:</label>
+            <div class="col-xs-2">
+                <input type="text" class="form-control" placeholder="Cedula" value="<?php if($predio!==null && $predio->CED_CATAS!==null) echo($predio->CED_CATAS); ?>">
+            </div>
+                <label class="control-label col-xs-2">N° Matricula Inmobiliaria:</label>
+            <div class="col-xs-2">
+                <input type="text" class="form-control" placeholder="Matricula">
+            </div>
+                <label class="control-label col-xs-1">PDF:</label>
+            <div class="col-xs-1">
+                <input type="file" name="Pdf" id="Pdf" accept="application/pdf">
+            </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-xs-1">Propietarios(s):</label>
+            <div class="col-xs-2">
+                <input type="text" class="form-control" placeholder="Propietario" value="<?php if($predio!==null && $predio->NOMBRE!==null) echo($predio->NOMBRE); ?>">
+            </div>
+                <label class="control-label col-xs-2">C.C o NIT:</label>
+            <div class="col-xs-2">
+                <input type="text" class="form-control" placeholder="C.C o NIT" value="<?php if($predio!==null && $predio->CEDULA!==null) echo($predio->CEDULA); ?>">
+            </div>
+                <label class="control-label col-xs-2">Direccion:</label>
+            <div class="col-xs-2">
+                <input type="text" class="form-control" placeholder="Direccion" value="<?php if($predio!==null && $predio->DIRECCION!==null) echo($predio->DIRECCION); ?>">
+            </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-xs-1">Municipio:</label>
+            <div class="col-xs-2">
+                <input type="text" class="form-control" placeholder="Municipio" value="<?php if($predio!==null && $predio->MUNICIPIO!==null) echo($predio->MUNICIPIO); ?>">
+            </div>
+                <label class="control-label col-xs-2">Departamento:</label>
+            <div class="col-xs-2">
+                <input type="text" class="form-control" placeholder="Departamento" value="<?php if($predio!==null && $predio->DEPARTAMENTO!==null) echo($predio->DEPARTAMENTO); ?>">
+            </div>
+                <label class="control-label col-xs-2">Fecha certificado de libertad y tradicion:</label>
+            <div class="col-xs-2">
+                <input type="text" class="form-control" placeholder="Fecha">
+            </div>
+            </div>
+    </form>
+    </div>

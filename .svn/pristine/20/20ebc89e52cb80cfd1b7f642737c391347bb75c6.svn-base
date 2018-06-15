@@ -1,0 +1,63 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class PredioJuridico extends CI_Controller {
+    public function __construct() {
+        parent::__construct();
+        $this->load->model('ingresodepredios_model');
+    }
+
+    public function index(){
+        $data['datos'] = $this->ingresodepredios_model->leer();
+        $this->load->view('ingreso_de_predios/index', $data);
+    }
+
+    public function importfile(){        
+        $this->load->library('csvimport');
+        $this->load->model('prediojuridicomodel');
+        $data['error'] = '';
+        $codproyecto = $this->input->post('codproyecto');
+
+        $config['upload_path'] = './uploads/';
+        $date = new DateTime('now');
+        $config['file_name'] = 'IGAC_'.$date->format('YmdHis').".txt";
+        $config['allowed_types'] = '*';
+        $config['max_size'] = '1000';
+ 
+        $this->load->library('upload', $config);
+
+        // If upload failed, display error
+        if (!$this->upload->do_upload("Import")) {            
+            $this->session->set_flashdata('Error', $this->upload->display_errors());            
+            redirect("ingresodepredios/".$codproyecto);
+        } else {
+            $file_data = $this->upload->data();
+            $file_path =  './uploads/'.$file_data['file_name'];
+ 
+            if ($this->csvimport->get_array($file_path)) {
+                $csv_array = $this->csvimport->get_array($file_path);
+                foreach ($csv_array as $row) {
+                    if($row['Join_Count']!=='0'){
+                $insert_data = array(
+                        'CED_CATAS'=>$row['No_Catastr'],
+                        'MUNICIPIO'=>$row['MUNICIPIO'],
+                        'DEPARTAMENTO'=>$row['DEPARTAMEN'],
+                        'UNID_FUNCIO'=>$row['U_F'],
+                        'MAT_INMOBILIARIA'=>$row['MAT_INMOBI'],
+                        'PREDIO_No'=>$row['No_NUEVO'],
+                        'COD_PROYECTO'=>$codproyecto,
+                    );
+                    $this->prediojuridicomodel->insert($insert_data);
+                }
+                }
+                $this->session->set_flashdata('Correcto', 'Se importó el archivo correctamente.');
+                redirect("ingresodepredios/".$codproyecto);
+            } else {
+                $this->session->set_flashdata('Error', 'Ocurrio un Error intentelo nuevamente');
+                redirect("ingresodepredios/".$codproyecto);
+            }
+ 
+        } 
+    }
+}
+?>

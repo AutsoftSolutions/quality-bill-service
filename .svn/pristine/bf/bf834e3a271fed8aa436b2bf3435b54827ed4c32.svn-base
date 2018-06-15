@@ -1,0 +1,39 @@
+<title>Recordar clave</title>
+
+<body>
+  <div id="content">
+    <div class="row_4">
+        <div class="container">
+<div class="col-sm-6 col-sm-6-contenidoDesktopExternal">           
+    <h1 class="text-center">
+        Recordar clave</h1>
+        <div id="MainContent_tblOpciones" class="text-center">
+  
+        <p>
+            Ingrese su número de documento de identidad (CC-CE-NIT) y el correo electrónico
+            registrado. Recibirá respuesta en su correo electrónico con la clave respectiva.</p>
+            <div class="container">
+              <form method="post" class="form-horizontal">
+                <div class="form-group">
+             <div class="col-xs-6">
+                <input type="text" class="form-control" name="username" placeholder="Documento de identidad" required="true">
+            </div>
+          </div>
+                <div class="form-group">
+            <div class="col-xs-6">
+                <input type="email" class="form-control" name="password" id="inputPassword" placeholder="Correo electronico" required="true">
+            </div>
+          </div>
+                <div class="form-group">
+              <div class="col-xs-6">
+              <input type="submit" class="btn btn-primary" id="Acceder" value="Enviar">
+                 </div>
+          </div>
+              </form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>

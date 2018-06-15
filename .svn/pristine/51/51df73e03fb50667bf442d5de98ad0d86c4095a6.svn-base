@@ -1,0 +1,132 @@
+<!--==============================header=================================-->
+<header id="header">
+        <title>Asignación Trabajo por Areas</title>
+</header>
+
+<div class="row_5">
+        <div class="container">
+        <form name="form1" method="post" action="" class="form-horizontal">
+          <div class="form-group">
+            <label class="control-label col-xs-1">Proyecto:</label>
+          <div class="col-xs-2">
+              <input type="text" class="form-control" placeholder="Proyecto">
+          </div>
+            <label class="control-label col-xs-2">Predio N°:</label>
+          <div class="col-xs-2">
+              <input type="text" class="form-control" placeholder="Predio" >
+          </div>
+        </div>
+        </div>
+    </form>
+<div id="content">
+  <div class="footerlogo">
+     <div class="menuheader">
+          <div class="container">
+            <nav class="navbar navbar-default navbar-static-top tm_navbar" role="navigation">
+                <ul class="nav sf-menu">
+                  <li><a href="<?php echo base_url('index.php/asignaciontrabajoporareas');?>">Reparto(Juridico) </a></li>
+                  <li class="active"><a href="<?php echo base_url('index.php/asignacionpredial');?>">Reparto(predial)</a></li>
+                  <li><a href="<?php echo base_url('index.php/asignacionsocial');?>">Asignacion(Social)</a></li>
+                  <li><a href="#">Reportes</a></li>
+                </ul>
+            </nav>
+          </div>
+      </div>
+      </div>
+
+    <div class="row_5">
+    <div class="container">
+      <form name="form1" method="post" action="">
+      <table border="1" id="table1">
+        <tr>
+          <td width="138">ABOGADO</td>
+          <td width="138">PREDIO N°</td>
+          <td width="138">FECHA DE INICIO</td>
+          <td width="145">FECHA DE FINALIZACION</td>
+          <td width="133">ESTADO</td>
+          <td>INGRESAR-ELIMIAR</td>
+        </tr>
+        <tr>
+          <td height="35"><label>
+            <textarea name="Abogado" cols="40" id="Abogado"></textarea>
+          </label></td>
+          <td><label>
+            <textarea name="NumPredio" cols="10" id="NumPredio"></textarea>
+          </label></td>
+          <td><label>
+            <textarea name="Fecha_Inicio" cols="25" id="Fecha_Inicio"></textarea>
+          </label></td>
+          <td><label>
+            <textarea name="FechaFinal" cols="25" id="FechaFinal"></textarea>
+          </label></td>
+          <td><label>
+            <textarea name="Estado" cols="S" id="Estado"></textarea>
+          </label></td>
+          <td></td>
+        </tr>
+      </table>
+      <p>
+        <input type="submit" name="Enviar" id="Enviar" value="Enviar">
+        <input type="button" name="Agregar" id="Nuevo" value="Nuevo" data-toggle="modal" data-target="#myModal">
+      </p>
+    </form>
+<script src="js/plugins/morris/morris-data.js"></script>
+<input type="button" value="Continuar" onclick="window.open('estudiodetitulos')" />
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Asignar predio</h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal" action="http://localhost/Inmobiliaria/App/index.php/asignaciontrabajoporareas/ingreso" method="post">
+    <div class="form-group">
+        <label class="control-label col-xs-3">Funcionario:</label>
+        <div class="col-xs-3">
+            <input type="text" class="form-control" id="funcionario" placeholder="Funcionario" required="true">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-3">Predio No.:</label>
+        <div class="col-xs-3">
+            <input type="text" class="form-control" id="Pred_Num" placeholder="Predio No" required="true">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-3">Fecha de Inicio:</label>
+        <div class="col-xs-3">
+            <input type="text" class="form-control" id="Fec_Ini" placeholder="Fecha">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-3">Fecha de Finalizacion:</label>
+        <div class="col-xs-3">
+            <input type="text" class="form-control" id="Fec_Fin" placeholder="Fecha">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-3">Estado:</label>
+        <div class="col-xs-3">
+            <input type="text" class="form-control" id="Estado" placeholder="Estado">
+        </div>
+    </div>
+    <p>&nbsp;</p>
+    <div class="form-group">
+        <div class="col-xs-offset-3 col-xs-9">
+            <input type="submit" class="btn btn-primary" value="Asignar">
+        </div>
+    </div>
+</form>
+ </div>
+      </div>
+      
+    </div>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<!--==============================header=================================-->
+<header id="header">
+        <title>Ingreso Proyectos</title>
+</header>
+<!--==============================content=================================-->
+<div id="content">
+  <!--==============================row4=================================-->
+    <div class="row_4">
+        <div class="container">
+          <form action="<?php echo base_url('index.php/paginajefe/newproject');?>" method="post" enctype="multipart/form-data" name="form3" class="form-horizontal">
+          <div class="address" style="color: #000000; font-family: Consolas, 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', Monaco, 'Courier New', monospace; font-size: 24px;">Bienvenido al sistema de información ANI</div>
+      <p>&nbsp;</p>
+      <div class="container">
+      <div class="address" style="color: #000000; font-family: Consolas, 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', Monaco, 'Courier New', monospace; font-size: 18px;">
+        <p class="col-md-offset-0">Que accion desea realizar:</p>
+        <p>&nbsp;</p>
+      </div>
+      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        CREAR PROYECTO
+      </button>
+      <p></p>
+      <div class="collapse" id="collapseExample">
+      <div class="well">
+        <div class="col-xs-3">
+        <input type="text" class="form-control" name="nuevo_proyecto" placeholder="Nombre" autocomplete="on">
+        </div>
+        <input type="submit" class="btn btn-primary" value="Crear Proyecto" name="nuevoproyecto" >
+      </div>
+      </div>
+      <p></p>      
+        <select>
+  <option value="p1">Proyecto 1</option>
+  <option value="p2">Proyecto 2</option>
+  <option value="p3">Proyecto 3</option>
+  <option value="p4">Proyecto 4</option>
+</select> 
+        <a href="<?php echo base_url('index.php/ingresodepredios');?>">ABRIR PROYECTO</a></p>
+      </div>
+    </div>
+</div>
+</form>
+<script> 
+function ocultar(){ 
+document.all.capa.style.visibility="visible";
+document.all.boton.style.visibility="visible";  
+} 
+</script> 

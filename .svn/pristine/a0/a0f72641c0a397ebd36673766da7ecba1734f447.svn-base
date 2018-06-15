@@ -1,0 +1,182 @@
+<head>
+  <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="<?php echo base_url("assets/css/sb-admin.css"); ?>">
+
+  <script type="text/javascript" class="init">
+  $(document).ready(function() {
+    $('#tabla_proyectos').DataTable({
+      "language": {
+        "decimal":        ",",
+        "emptyTable":     "No se encontraron predios relacionados a este proyecto",
+        "info":           "Mostrando de _START_ a _END_ de _TOTAL_ registros",
+        "infoEmpty":      "Mostrando de 0 a 0 de 0 registros",
+        "infoFiltered":   "(Filtrados de _MAX_ registros)",
+        "infoPostFix":    "",
+        "thousands":      ".",
+        "lengthMenu":     "Mostrar _MENU_ registros",
+        "loadingRecords": "Cargando...",
+        "processing":     "Procesando...",
+        "search":         "Buscar:",
+        "zeroRecords":    "No se encontraron registros coincidentes",
+        "paginate": {
+          "first":      "Primero",
+          "last":       "Último",
+          "next":       "Siguiente",
+          "previous":   "Anterior"
+        },
+        "aria": {
+          "sortAscending":  ": activate to sort column ascending",
+          "sortDescending": ": activate to sort column descending"
+        }
+      },
+      "pagingType": "full_numbers",
+    });
+});
+
+$(document).on('click', 'input[data-delete]', function(){
+  var id = $(this).attr('data-delete');
+  var modal = $('#ModalDelete');
+  $.ajax({
+
+  })
+  .done(function( data ) {
+    modal.find('input[name=id_proyecto]').val(id);
+    $('#ModalDelete').modal('show');
+  });
+});
+
+$(document).on('click', 'input[data-edit]', function(){
+  var id = $(this).attr('data-edit');
+  $.ajax({
+    method: "GET",
+    url: "<?php echo base_url('index.php/paginajefe/leerProyecto'); ?>" +'/'+ id
+  })
+  .done(function( data ) {
+    var modal = $('#ModalEdit');
+    modal.find('#modal-title').html('Editar Proyecto');
+    modal.find('input[name=proyecto]').val(data[0].NOM_PROYECTO);
+    modal.modal('show');
+  });
+});
+
+</script>
+</head>
+<!--==============================header=================================-->
+<header id="header">
+  <title>Ingreso Proyectos</title>
+</header>
+<div id="content">
+  <div class="row_4">
+    <div class="container">
+     <form action="<?php echo base_url('index.php/paginajefe/newproject'); ?>" method="post" enctype="multipart/form-data" name="form3" class="form-horizontal">
+      <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+              <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                ABRIR PROYECTO
+              </a>
+            </h4>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+              <table border="3" name="tabla_proyectos" id="tabla_proyectos" class="table table-striped table-bordered">
+                <thead>
+                 <tr>
+                  <th scope="col">PROYECTO</th>
+                  <th scope="col">EDITAR - ELIMINAR</th>
+                </tr>
+              </thead>
+              <tbody>
+               <?php if ($proyectos !== false) {
+	foreach ($proyectos->result() as $dato) {
+		?>
+                  <tr>
+                    <td><a href="<?php echo base_url('index.php/ingresodepredios/' . ($dato->COD_PROYECTO)); ?>" class="btn btn-info" role="button">ABRIR</a>  <?php if ($dato !== null && $dato->NOM_PROYECTO !== null) {
+			echo ($dato->NOM_PROYECTO);
+		}
+		?></td>
+                   <td><input type="button" class="btn btn-primary" value="EDITAR" data-edit="<?php if ($dato !== null && $dato->COD_PROYECTO !== null) {echo ($dato->COD_PROYECTO);}
+		?>">
+                   <input type="button" class="btn btn-primary" value="ELIMINAR" data-delete="<?php if ($dato !== null && $dato->COD_PROYECTO !== null) {echo ($dato->COD_PROYECTO);}
+		?>"></td>
+                 </tr>
+                 <?php }}
+?>
+               </tbody>
+             </table>
+           </div>
+         </div>
+       </div>
+       <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingTwo">
+          <h4 class="panel-title">
+            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              CREAR PROYECTO
+            </a>
+          </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            <div class="col-xs-3">
+              <input type="text" class="form-control" name="nuevo_proyecto" placeholder="Nombre" autocomplete="on">
+            </div>
+            <input type="submit" class="btn btn-primary" value="Crear Proyecto" name="nuevoproyecto" >
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+
+</div>
+</div>
+</div>
+
+  <!-- set up the modal to start hidden and fade in and out -->
+<div id="ModalDelete" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- dialog body -->
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        Está a punto de eliminar un proyecto de forma permanente. ¿Está seguro(a)?
+      </div>
+      <!-- dialog buttons -->
+      <div class="modal-footer"><button type="button" class="btn btn-success" id='btn-confirm-proyecto'>CONFIRMAR</button><button type="button" class="btn btn-danger" id='btn-cancel-dproyecto'>CANCELAR</button></div>
+      <input type="hidden" name="id_proyecto" value="">
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="ModalEdit" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title" id="modal-title"></h4>
+      </div>
+      <!-- dialog body -->
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="control-label col-xs-4">Proyecto:</label>
+          <div class="col-xs-6">
+            <input type="text" class="form-control" name="proyecto" placeholder="Nombre">
+          </div>
+        </div>
+      </div>
+      <!-- dialog buttons -->
+      <div class="modal-footer"><button type="button" class="btn btn-primary" id='btn-guardar-proyecto'>GUARDAR</button><button type="button" class="btn btn-danger" id='btn-cancel-gproyecto'>CANCELAR</button></div>
+      <input type="hidden" name="id_proyecto" value="">
+    </div>
+  </div>
+</div>
+
+
+
+
+

@@ -1,0 +1,30 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class ingresodepredios_model extends CI_Model {
+	function __construct() {
+        parent::__construct();
+        $this->load->database();
+ 
+    }
+	
+	function insert($data) {
+        $this->db->insert('predio_juridico', array('COD_GIS'=>$data['codgis'], 'FMI'=>$data['mat'],'CED_CATAS'=>$data['cc'],'MUNICIPIO'=>$data['muni'],'DEPARTAMENTO'=>$data['depa'],'UNID_FUNCIO'=>$data['uf']));
+    }
+    function leer(){
+    	$query = $this->db->get('predio_juridico');
+    	if($query->num_rows()>0) return $query;
+    		else return false;
+    }
+    function lee($id){
+    	$this->db->where('COD_GIS',$id);
+    	$query = $this->db->get('predio_juridico');
+    	if($query->num_rows()>0) return $query;
+    		else return false;
+    }
+    function actualizar($id, $datos){
+    	$datos = array('COD_GIS'=>$data['codgis'], 'FMI'=>$data['mat'],'CED_CATAS'=>$data['cc'],'MUNICIPIO'=>$data['muni'],'DEPARTAMENTO'=>$data['depa'],'UNID_FUNCIO'=>$data['uf']));
+    	$this->db->where('COD_GIS',$id);
+    	$query = $this->db->update('predio_juridico', $datos);
+    }
+}

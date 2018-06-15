@@ -1,0 +1,17 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class IngresoDePredios extends CI_Controller {
+	public function __construct() {
+        parent::__construct();
+    }
+
+    public function index(){
+    	$this->load->view('ingreso_de_predios/index');    	
+    }
+
+    public function popingresopredios(){
+    	$this->load->view('ingreso_de_predios/popingresopredios');    	
+    }
+}
+?>

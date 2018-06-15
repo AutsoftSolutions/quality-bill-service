@@ -1,0 +1,65 @@
+<div class="row_5">
+    <div class="container">
+<p>FORMULARIOS SOPORTE DE CAMPO</p>
+    <form id="form4" name="form4" method="post">
+      <table border="0" id="table1">
+        <tbody>
+          <tr>
+            <td>Registro No.</td>
+            <td><input type="number" name="Registro1" id="Registro1"></td>
+            <td>Registro No.</td>
+            <td><input type="number" name="Registro2" id="Registro2"></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td><input name="Texto_Registro1" type="text" id="Texto_Registro1"></td>
+            <td>&nbsp;</td>
+            <td><input type="text" name="Texto_Reg2" id="Texto_Reg2"></td>
+          </tr>
+          <tr>
+            <td>Descripcion</td>
+            <td><input type="text" name="Desc_Reg1" id="Desc_Reg1"></td>
+            <td>Descripcion</td>
+            <td><input type="text" name="Desc_Reg2" id="Desc_Reg2"></td>
+          </tr>
+          <tr>
+            <td>Registro No.</td>
+            <td><input type="number" name="Registro3" id="Registro3"></td>
+            <td>Registro No.</td>
+            <td><input type="number" name="Registro3" id="Registro4"></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td><input name="Texto_Registro2" type="text" id="Texto_Registro2"></td>
+            <td>&nbsp;</td>
+            <td><input type="text" name="Texto_Reg" id="Texto_Reg"></td>
+          </tr>
+          <tr>
+            <td>Descripcion</td>
+            <td><input type="text" name="Desc_Reg3" id="Desc_Reg3"></td>
+            <td>Descripcion</td>
+            <td><input type="text" name="Desc_Reg3" id="Desc_Reg4"></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+</div>
