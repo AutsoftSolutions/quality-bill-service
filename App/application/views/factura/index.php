@@ -37,7 +37,7 @@
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <!-- Logo -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="<?php echo base_url('index.php/factura'); ?>">
                         <!-- Logo icon -->
                         <b><img src="<?php echo base_url("assets/images/logo.png"); ?>" alt="homepage" class="dark-logo" /></b>
                         <!--End Logo icon -->
@@ -57,8 +57,10 @@
                             <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo base_url("assets/images/users/5.jpg"); ?>" alt="user" class="profile-pic" /></a>
                             <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                                 <ul class="dropdown-user">
-                                    <li><a href="#"><i class="ti-user"></i> Perfil</a></li>
-                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                    <li><a href="<?php echo base_url('index.php/factura' . '/' . $this->session->userdata('id_usuario')); ?>"><i class="fa fa-file"></i> Factura</a></li>
+                                    <li><a href="<?php echo base_url('index.php/usuarios' . '/' . $this->session->userdata('id_empresa')); ?>"><i class="fa fa-address-book"></i> Clientes</a></li>
+                                    <li><a href="<?php echo base_url('index.php/configuracion' . '/' . $this->session->userdata('id_empresa')); ?>"><i class="fa fa-wrench"></i> Configuración</a></li>
+                                    <li><a href="<?php echo base_url('index.php/login/logout'); ?>"><i class="fa fa-power-off"></i> Logout</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -77,28 +79,68 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="form-validation">
-                                    <form class="form-valide" action="#" method="post">
+                                    <form class="form-valide" action="<?=base_url()?>index.php/factura/generarpdf" method="post" id="form-factura" name="form-factura">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-descripcion">Cliente <span class="text-danger">*</span></label>
+                                            <div class="col-lg-6">
+                                                <select class="form-control custom-select" id="id_cliente" name="id_cliente">
+                                                    <?php
+                                                        if ($clientes !== false) {
+                                                            foreach ($clientes as $dato) {
+                                                    ?>
+                                                                <option value="<?php if ($dato !== null && $dato->ID !== null) {echo ($dato->ID);} ?>">
+                                                                    <?php if ($dato !== null && $dato->NOMBRE !== null) {echo ($dato->NOMBRE);}?>
+                                                                </option>
+                                                            <?php }}
+                                                            ?>
+                                                </select>
+                                            </div>
+                                        </div>
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="val-descripcion">Descripción <span class="text-danger">*</span></label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="val-descripcion" name="val-descripcion" placeholder="Descripcion">
+                                                <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Descripcion" required>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="val-observaciones">Observaciones <span class="text-danger">*</span></label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="val-observaciones" name="val-observaciones" placeholder="Observaciones">
+                                                <input type="text" class="form-control" id="vobservaciones" name="observaciones" placeholder="Observaciones">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="val-password">Total Factura <span class="text-danger">*</span></label>
+                                            <label class="col-lg-4 col-form-label" for="val-password">Valor Acta antes de IVA <span class="text-danger">*</span></label>
                                             <div class="col-lg-6">
-                                                <input type="password" class="form-control" id="val-totalfactura" name="val-totalfactura" placeholder="Total factura">
+                                                <input type="tel" class="form-control" id="totalfactura" name="totalfactura" placeholder="Total factura"required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-lg-4 checkbox checkbox-success">
+                                                <label for="iva"> IVA sobre Utilidad <span class="text-danger">*</span></label>
+                                                <input id="iva" name="iva" type="checkbox">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-lg-4 checkbox checkbox-success">
+                                                <label for="administracion"> Porcentaje Administración <span class="text-danger">*</span></label>
+                                                <input id="administracion" name="administracion" type="checkbox">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-lg-4 checkbox checkbox-success">
+                                                <label for="imprevistos"> Porcentaje Imprevistos <span class="text-danger">*</span></label>
+                                                <input id="imprevistos" name="imprevistos" type="checkbox">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-lg-4 checkbox checkbox-success">
+                                                <label for="utilidad"> Porcentaje Utilidad <span class="text-danger">*</span></label>
+                                                <input id="utilidad" name="utilidad" type="checkbox">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-lg-8 ml-auto">
-                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                                <button type="submit" class="btn btn-primary" id="btn-pdf" name="btn-pdf">Submit</button>
                                             </div>
                                         </div>
                                     </form>
@@ -138,5 +180,7 @@
     <script src="<?php echo base_url("assets/js/custom.min.js"); ?>"></script>
 
 </body>
+
+
 
 </html>

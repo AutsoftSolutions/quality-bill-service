@@ -55,3 +55,5 @@ $route['translate_uri_dashes'] = FALSE;
 $route['factura/(:num)'] = "factura/index/$1";
 $route['config/(:num)'] = "config/index/$1";
 $route['usuarios/(:num)'] = "usuarios/index/$1";
+$route['perfil/(:num)'] = "perfil/index/$1";
+$route['configuracion/(:num)'] = "configuracion/index/$1";
